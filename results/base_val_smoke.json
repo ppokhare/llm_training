@@ -1,0 +1,361 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "adapter": null,
+  "split": "validation",
+  "n": 50,
+  "accuracy_greedy": 0.02,
+  "invalid_format_rate": 0.98,
+  "max_new_tokens": 256,
+  "samples": [
+    {
+      "question": "Mimi picked up 2 dozen seashells on the beach.  Kyle found twice as many shells as Mimi and put them in his pocket. Leigh grabbed one-third of the shells that Kyle found.  How many seashells did Leigh have?",
+      "gold": "16",
+      "prediction": null,
+      "correct": false,
+      "output": "Mimi picked up 2 dozen seashells, which is 2 x 12 = 24 seashells.\nKyle found twice as many shells as Mimi, so he found 2 x 24 = 48 seashells.\nLeigh grabbed one-third of the shells that Kyle found, so she grabbed 1/3 x 48 = 16 seashells.\nLeigh had 16 seashells.\nFinal answer: 16"
+    },
+    {
+      "question": "Frankie's parents let him have many pets. He has six more snakes than he has cats. He has one less parrot than cats. Six of his pets have four legs. He has 2 dogs. How many pets does he have in total?",
+      "gold": "19",
+      "prediction": null,
+      "correct": false,
+      "output": "Let's break down the problem step by step to find out how many pets Frankie has in total.\n\n### Step 1: Define Variables\nLet\u2019s define the number of cats as \\( C \\).\n\n### Step 2: Express Other Pets in Terms of \\( C \\)\n- **Snakes**: Frankie has six more snakes than cats. So, the number of snakes is \\( S = C + 6 \\).\n- **Parrots**: He has one less parrot than cats. So, the number of parrots is \\( P = C - 1 \\).\n- **Dogs**: He has 2 dogs. So, the number of dogs is \\( D = 2 \\).\n\n### Step 3: Use the Information About Legs\nSix of his pets have four legs. Since dogs have 4 legs, and parrots have 2 legs, we can set up the following equation:\n\\[ 6 \\times 4 = 24 \\]\nThis means the total number of legs from the six pets is 24. Since dogs have 4 legs and parrots have 2 legs, we can write:\n\\[ 4D + 2P = 24 \\]\nSubstitute \\( D = 2 \\) and \\( P ="
+    },
+    {
+      "question": "Olaf collects colorful toy cars. At first, his collection consisted of 150 cars. His family, knowing his hobby, decided to give him some toy cars. Grandpa gave Olaf twice as many toy cars as the uncle. Dad gave Olaf 10 toy cars, 5 less than Mum. Auntie gave Olaf 6 toy cars, 1 more than the uncle. How many toy cars does Olaf have in total, after receiving all these gifts?",
+      "gold": "196",
+      "prediction": null,
+      "correct": false,
+      "output": "Let's break down the problem step by step to find out how many toy cars Olaf has in total after receiving all the gifts.\n\n1. **Initial Collection:**\n   - Olaf starts with **150** toy cars.\n\n2. **Gifts Received:**\n   - **Grandpa** gave Olaf twice as many toy cars as the **uncle**.\n     - Let the number of toy cars the uncle gave be \\( x \\).\n     - Grandpa gave \\( 2x \\) toy cars.\n   - **Dad** gave Olaf **10** toy cars.\n   - **Mum** gave Olaf **5** more than Dad, so \\( 10 + 5 = 15 \\) toy cars.\n   - **Auntie** gave Olaf **6** toy cars, which is **1** more than the uncle.\n     - Let the number of toy cars the uncle gave be \\( x \\).\n     - Auntie gave \\( x + 1 \\) toy cars.\n\n3. **Total Gifts Received:**\n   - Grandpa: \\( 2x \\)\n   - Dad: \\( 10 \\)\n   - Mum: \\( 15 \\)\n   - Auntie"
+    },
+    {
+      "question": "Emma's bank account has $100 in it. Each day of the week, she spends $8. At the end of the week, she goes to the bank and asks for as many $5 bills as her account can give her. She leaves the rest in the account. How many dollars remain in the account?",
+      "gold": "4",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the total amount spent in a week.\nEmma spends $8 each day for 7 days, so the total amount spent in a week is:\n$8/day * 7 days = $56\n\nStep 2: Calculate the remaining amount in the bank account after spending.\nEmma's initial bank account has $100, and she spends $56 in a week. So, the remaining amount in the bank account is:\n$100 - $56 = $44\n\nStep 3: Calculate the number of $5 bills Emma can get from the remaining amount.\nEmma can get as many $5 bills as her account can give her. Since the remaining amount is $44, she can get:\n$44 / $5 = 8.8\n\nSince Emma can only get whole $5 bills, she can get 8 $5 bills.\n\nStep 4: Calculate the total amount of money Emma gets from the $5 bills.\nEmma gets 8 $5 bills, so the total amount of money she gets from the $5 bills is:\n8 * $5 = $40\n\nStep 5: Calculate the remaining amount in the bank account after getting the $5 bills.\nEmma leaves the"
+    },
+    {
+      "question": "Ezekiel hikes as a hobby. This past summer, he did a challenging three-day hike across 50 kilometers of wilderness. The first day, he covered 10 kilometers of steep mountainside. The second day was flatter and he was able to cover half the full hike distance. How many kilometers did he have to hike on the third day to finish the hike?",
+      "gold": "15",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the distance covered on the first day.\nEzekiel covered 10 kilometers on the first day.\n\nStep 2: Determine the distance covered on the second day.\nHe covered half the full hike distance on the second day, which is 50 kilometers / 2 = 25 kilometers.\n\nStep 3: Calculate the total distance covered on the first two days.\n10 kilometers (first day) + 25 kilometers (second day) = 35 kilometers.\n\nStep 4: Determine the distance left to cover on the third day.\nThe total hike distance is 50 kilometers, and he has already covered 35 kilometers. So, the distance left to cover on the third day is 50 kilometers - 35 kilometers = 15 kilometers.\n\nFinal answer: Ezekiel had to hike 15 kilometers on the third day to finish the hike."
+    },
+    {
+      "question": "James decides to build a tin house by collecting 500 tins in a week. On the first day, he collects 50 tins. On the second day, he manages to collect 3 times that number. On the third day, he collects 50 tins fewer than the number he collected on the second day. If he collects an equal number of tins on the remaining days of the week, what's the number of tins he collected each day for the rest of the week?",
+      "gold": "50",
+      "prediction": null,
+      "correct": false,
+      "output": "On the first day, James collects 50 tins.\nOn the second day, he collects 3 times that number, so 50 * 3 = 150 tins.\nOn the third day, he collects 50 tins fewer than the number he collected on the second day, so 150 - 50 = 100 tins.\nHe has 5 days left in the week, so he needs to collect 500 - 50 - 150 - 100 = 200 tins for the remaining days.\nHe needs to collect 200 / 5 = 40 tins each day for the remaining days.\nSo, James collects 40 tins each day for the rest of the week."
+    },
+    {
+      "question": "Don throws 3 darts.  One is a bullseye worth 50 points.  One completely missed the target, so received no points. The third was worth half the points of the bullseye.  What is the final score from these 3 throws?",
+      "gold": "75",
+      "prediction": null,
+      "correct": false,
+      "output": "To find the final score, we need to add up the points from each of Don's three throws.\n\n1. The first dart is a bullseye worth 50 points.\n2. The second dart completely missed the target, so it received no points.\n3. The third dart is worth half the points of the bullseye, which is 50 / 2 = 25 points.\n\nNow, we add up the points from all three throws:\n\n50 (bullseye) + 0 (missed dart) + 25 (third dart) = 75 points\n\nSo, the final score from these 3 throws is 75 points."
+    },
+    {
+      "question": "TreQuan is throwing rocks in the river and he notices that the bigger the rock, the wider the splash. Pebbles make a splash that is a 1/4 meter wide. Rocks make a splash that is 1/2 a meter wide, and boulders create a splash that is 2 meters wide. If he tosses 6 pebbles, 3 rocks, and 2 boulders, what is the total width of the splashes he makes?",
+      "gold": "7",
+      "prediction": null,
+      "correct": false,
+      "output": "To find the total width of the splashes, we need to calculate the width of the splash for each type of rock and then add them up.\n\n1. Pebbles make a splash that is 1/4 meter wide.\n2. Rocks make a splash that is 1/2 meter wide.\n3. Boulders make a splash that is 2 meters wide.\n\nNow, we add up the widths of the splashes for each type of rock:\n\nPebbles: 1/4 meter\nRocks: 1/2 meter\nBoulders: 2 meters\n\nTotal width = 1/4 + 1/2 + 2\n\nTo add these fractions, we need a common denominator. The least common denominator for 4, 2, and 1 is 4.\n\n1/4 + 2/4 + 8/4 = (1 + 2 + 8) / 4 = 11/4\n\nSo, the total width of the splashes is 11/4 meters, which is equal to 2.75 meters."
+    },
+    {
+      "question": "Pauly is making omelets for his family. There are three dozen eggs, and he plans to use them all. Each omelet requires 4 eggs. Including himself, there are 3 people. How many omelets does each person get?",
+      "gold": "3",
+      "prediction": null,
+      "correct": false,
+      "output": "Pauly has 3 dozen eggs, which is 3 x 12 = 36 eggs.\nHe plans to use all 36 eggs, so he can make 36 / 4 = 9 omelets.\nThere are 3 people in total, so each person will get 9 / 3 = 3 omelets.\nFinal answer: 3"
+    },
+    {
+      "question": "Thomas made 4 stacks of wooden blocks. The first stack was 7 blocks tall. The second stack was 3 blocks taller than the first. The third stack was 6 blocks shorter than the second stack, and the fourth stack was 10 blocks taller than the third stack. If the fifth stack has twice as many blocks as the second stack, how many blocks did Thomas use in all?",
+      "gold": "55",
+      "prediction": null,
+      "correct": false,
+      "output": "1. The first stack was 7 blocks tall.\n2. The second stack was 3 blocks taller than the first stack, so it was 7 + 3 = 10 blocks tall.\n3. The third stack was 6 blocks shorter than the second stack, so it was 10 - 6 = 4 blocks tall.\n4. The fourth stack was 10 blocks taller than the third stack, so it was 4 + 10 = 14 blocks tall.\n5. The fifth stack has twice as many blocks as the second stack, so it was 2 * 10 = 20 blocks tall.\n6. To find the total number of blocks used, we add up the number of blocks in each stack: 7 + 10 + 4 + 14 + 20 = 55 blocks.\nFinal answer: 55 blocks"
+    },
+    {
+      "question": "Trace has five shopping bags that weigh the same amount as Gordon\u2019s two shopping bags. One of Gordon\u2019s shopping bags weighs three pounds and the other weighs seven. Trace\u2019s shopping bags all weigh the same amount. How many pounds does one of Trace\u2019s bags weigh?",
+      "gold": "2",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Find the total weight of Gordon\u2019s shopping bags.\nGordon\u2019s shopping bags weigh 3 pounds + 7 pounds = 10 pounds.\n\nStep 2: Determine the total weight of Trace\u2019s shopping bags.\nTrace\u2019s shopping bags weigh the same amount as Gordon\u2019s shopping bags, so they also weigh 10 pounds.\n\nStep 3: Find the weight of one of Trace\u2019s shopping bags.\nSince Trace has five shopping bags, and they all weigh the same amount, we divide the total weight of Trace\u2019s shopping bags by 5.\n10 pounds \u00f7 5 = 2 pounds.\n\nFinal answer: One of Trace\u2019s shopping bags weighs 2 pounds."
+    },
+    {
+      "question": "A library has a number of books. 35% of them are intended for children and 104 of them are for adults. How many books are in the library?",
+      "gold": "160",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine the total number of books in the library. We know that 35% of the books are intended for children and 104 of them are for adults. Let's denote the total number of books as \\( x \\).\n\nFirst, we can express the number of books for children as a percentage of the total number of books. Since 35% of the books are for children, the number of books for children can be written as:\n\\[ 0.35x \\]\n\nWe are given that the number of books for adults is 104. Therefore, we can set up the following equation:\n\\[ 0.35x = 104 \\]\n\nTo find the total number of books \\( x \\), we need to solve for \\( x \\) by isolating it on one side of the equation. We do this by dividing both sides of the equation by 0.35:\n\\[ x = \\frac{104}{0.35} \\]\n\nNow, we perform the division:\n\\[ x = \\frac{104}{0.35} = 297.142857 \\]\n\nSince the number of books must"
+    },
+    {
+      "question": "Nicky is trading baseball cards with Jill. If Nicky trades two cards worth $8 each for 1 card worth $21, how many dollars of profit does he make?",
+      "gold": "5",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the total value of the cards Nicky trades.\nNicky trades two cards worth $8 each, so the total value of the cards is 2 * $8 = $16.\n\nStep 2: Calculate the profit Nicky makes.\nNicky receives one card worth $21, so the profit he makes is the difference between the value of the card he receives and the value of the cards he trades: $21 - $16 = $5.\n\nStep 3: Finish with exactly one <final>number</final> tag.\nThe final answer is $5."
+    },
+    {
+      "question": "Patricia is making a highlight film about her basketball team. She recorded video of every player and plans to put it all together in a longer movie. She has 130 seconds of the point guard, 145 seconds of the shooting guard, 85 seconds of the small forward, 60 seconds of the power forward, and 180 seconds of the center. How on average, how many minutes does each player get?",
+      "gold": "2",
+      "prediction": null,
+      "correct": false,
+      "output": "To find the average time each player gets, we need to add up the total time recorded for all players and then divide by the number of players.\n\nTotal time recorded = 130 seconds (point guard) + 145 seconds (shooting guard) + 85 seconds (small forward) + 60 seconds (power forward) + 180 seconds (center)\n\nTotal time recorded = 130 + 145 + 85 + 60 + 180 = 600 seconds\n\nNow, we need to find the average time per player by dividing the total time by the number of players.\n\nAverage time per player = Total time recorded / Number of players\nAverage time per player = 600 seconds / 5 players\n\nAverage time per player = 120 seconds\n\nTo convert seconds to minutes, we divide by 60 (since there are 60 seconds in a minute).\n\nAverage time per player = 120 seconds / 60 = 2 minutes\n\nSo, on average, each player gets 2 minutes of the highlight film."
+    },
+    {
+      "question": "Julie, Letitia and Anton decided to have dinner together at a nearby restaurant.  Julie orders $10 worth of food, Letitia orders $20 worth of food, and Anton orders $30 worth of food.  How much should each pay in tips if they want to split a 20% tip for the whole meal evenly?",
+      "gold": "4",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to follow these steps:\n\n1. Calculate the total cost of the meal.\n2. Calculate the total tip amount (20% of the total cost).\n3. Divide the total tip amount by the number of people (3) to find out how much each person should pay.\n\nLet's start with the first step:\n\n1. Calculate the total cost of the meal:\n   - Julie's order: $10\n   - Letitia's order: $20\n   - Anton's order: $30\n   - Total cost = $10 + $20 + $30 = $60\n\n2. Calculate the total tip amount (20% of the total cost):\n   - Total tip = 20% of $60 = 0.20 * $60 = $12\n\n3. Divide the total tip amount by the number of people (3) to find out how much each person should pay:\n   - Each person's tip = $12 / 3 = $4\n\nSo, each person should pay $4 in tips."
+    },
+    {
+      "question": "Niko has bought 9 pairs of socks that cost $2 each and plans to resell them. He wants to gain 25% profit from four of the pairs of socks and $0.2 profit each for the other 5 pairs of socks. How much will his total profit be?",
+      "gold": "3",
+      "prediction": null,
+      "correct": false,
+      "output": "Niko bought 9 pairs of socks for $2 each, so he spent 9 * $2 = $18 on the socks.\nHe wants to gain 25% profit from four of the pairs of socks, so he will make a profit of 25% * $2 = $0.5 on each pair of socks.\nHe will make a total profit of $0.5 * 4 = $2 on the four pairs of socks.\nHe also wants to gain $0.2 profit each for the other 5 pairs of socks, so he will make a profit of $0.2 * 5 = $1 on each pair of socks.\nHe will make a total profit of $0.2 * 5 = $1 on the other 5 pairs of socks.\nIn total, Niko will make a profit of $2 + $1 = $3.\nThe final answer is: 3"
+    },
+    {
+      "question": "The number of short students in a class is 2/5 of the total number of students. If there are 90 tall students, and the class has 400 students, calculate the total number of students with average height.",
+      "gold": "150",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Find the number of short students.\nThe number of short students is 2/5 of the total number of students. \nSo, the number of short students = (2/5) * 400 = 160\n\nStep 2: Find the number of tall students.\nWe are given that there are 90 tall students.\n\nStep 3: Find the number of students with average height.\nThe total number of students is 400. \nSo, the number of students with average height = Total number of students - (Number of short students + Number of tall students)\n= 400 - (160 + 90)\n= 400 - 250\n= 150\n\nFinal answer: There are 150 students with average height in the class."
+    },
+    {
+      "question": "James buys 20 coins of a cryptocurrency at $15 each.  The value of the coins increases by 2/3.  He sells coins to recoup his original investment.  How many coins did he sell?",
+      "gold": "12",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to follow these steps:\n\n1. Calculate the original total value of the coins James bought.\n2. Determine the new value of the coins after the increase.\n3. Calculate how many coins James needs to sell to recoup his original investment.\n\nLet's break it down:\n\n1. The original total value of the coins is \\(20 \\text{ coins} \\times \\$15 \\text{ per coin} = \\$300\\).\n2. The value of the coins increases by \\(\\frac{2}{3}\\), so the new value of the coins is \\( \\$300 \\times \\left(1 + \\frac{2}{3}\\right) = \\$300 \\times \\frac{5}{3} = \\$500\\).\n3. To recoup his original investment, James needs to sell coins that bring him back to \\$300. Since the new value of the coins is \\$500, he needs to sell \\( \\$500 - \\$300 = \\$200 \\) worth of coins.\n4. Since each coin is worth \\$15, the number of coins he needs to sell is \\( \\frac{\\$200}{"
+    },
+    {
+      "question": "In the park, the first rose bush has 12 red flowers.  The second rose bush has 18 pink flowers.  The third rose bush has 20 yellow flowers.  The fourth rose bush has 8 orange flowers.  For her vase, Lorelei picks 50% of the red roses, 50% pink roses, 25% of the yellow roses, and 25% orange roses. How many roses are in her vase?",
+      "gold": "22",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to calculate the number of roses Lorelei picks from each rose bush and then sum them up to find the total number of roses in her vase.\n\n1. **Red Roses:**\n   - First rose bush: 12 red flowers\n   - Second rose bush: 18 red flowers\n   - Total red roses = 12 + 18 = 30\n\n2. **Pink Roses:**\n   - Second rose bush: 18 pink flowers\n   - Total pink roses = 18\n\n3. **Yellow Roses:**\n   - Third rose bush: 20 yellow flowers\n   - Total yellow roses = 20\n\n4. **Orange Roses:**\n   - Fourth rose bush: 8 orange flowers\n   - Total orange roses = 8\n\n5. **Total Roses in Vase:**\n   - Total roses = Red roses + Pink roses + Yellow roses + Orange roses\n   - Total roses = 30 + 18 + 20 + 8 = 76\n\nSo, Lorelei has **76 roses** in her vase."
+    },
+    {
+      "question": "Tonya has opened a lemonade stand selling lemonade in small, medium, and large cups at $1, $2 and $3 respectively. At the close of business she ended up making $50.  As she went back through her inventory she noticed that she sold $11 worth of small lemonades and $24 worth of medium lemonades. How many cups of large lemonade did Tonya sell?",
+      "gold": "5",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine the number of large cups of lemonade that Tonya sold. Here's the step-by-step reasoning:\n\n1. **Identify the total revenue and the revenue from small and medium lemonades:**\n   - Total revenue = $50\n   - Revenue from small lemonades = $11\n   - Revenue from medium lemonades = $24\n\n2. **Calculate the revenue from large lemonades:**\n   - Revenue from large lemonades = Total revenue - Revenue from small lemonades - Revenue from medium lemonades\n   - Revenue from large lemonades = $50 - $11 - $24\n   - Revenue from large lemonades = $15\n\n3. **Determine the number of large cups sold:**\n   - Price per large cup = $3\n   - Number of large cups sold = Revenue from large lemonades / Price per large cup\n   - Number of large cups sold = $15 / $3\n   - Number of large cups sold = 5\n\nSo, Tonya sold **5 large cups** of lemonade."
+    },
+    {
+      "question": "Leo's assignment was divided into three parts. He finished the first part of his assignment in 25 minutes. It took him twice as long to finish the second part. If he was able to finish his assignment in 2 hours, how many minutes did Leo finish the third part of the assignment?",
+      "gold": "45",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the time taken for the second part of the assignment.\nLeo took twice as long to finish the second part as the first part. Since the first part took 25 minutes, the second part took 2 * 25 = 50 minutes.\n\nStep 2: Calculate the total time taken for the first and second parts.\nThe first part took 25 minutes, and the second part took 50 minutes. So, the total time for the first and second parts is 25 + 50 = 75 minutes.\n\nStep 3: Determine the time taken for the third part of the assignment.\nLeo finished his assignment in 2 hours, which is equal to 2 * 60 = 120 minutes. To find the time taken for the third part, subtract the total time for the first and second parts from the total time for the assignment: 120 - 75 = 45 minutes.\n\nFinal Answer: Leo finished the third part of the assignment in 45 minutes."
+    },
+    {
+      "question": "Connor is taking his date to the movies.  The tickets cost $10.00 each.  They decided to get the large popcorn & 2 drink combo meal for $11.00 and each grab a box of candy for $2.50 each.  How much will Connor spend on his date?",
+      "gold": "36",
+      "prediction": "36",
+      "correct": true,
+      "output": "Step 1: Calculate the cost of the tickets.\nTickets cost $10.00 each, and there are two tickets.\nTickets cost = 2 * $10.00 = $20.00\n\nStep 2: Calculate the cost of the combo meal.\nThe combo meal costs $11.00.\n\nStep 3: Calculate the cost of the candy.\nEach box of candy costs $2.50, and there are two boxes.\nCandy cost = 2 * $2.50 = $5.00\n\nStep 4: Add up all the costs.\nTotal cost = Tickets cost + Combo meal cost + Candy cost\nTotal cost = $20.00 + $11.00 + $5.00 = $36.00\n\nStep 5: Finish with exactly one <final>number</final> tag.\n<final>$36.00</final>"
+    },
+    {
+      "question": "Susie has 572 beans in the jar. One-fourth of them are red and one-third of the remaining beans are white. Then half of the remaining are green beans. How many green beans are there?",
+      "gold": "143",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Find the number of red beans.\nOne-fourth of the beans are red, so we calculate:\nRed beans = (1/4) * 572 = 143\n\nStep 2: Find the remaining beans after removing the red beans.\nRemaining beans = Total beans - Red beans\nRemaining beans = 572 - 143 = 429\n\nStep 3: Find the number of white beans.\nOne-third of the remaining beans are white, so we calculate:\nWhite beans = (1/3) * 429 = 143\n\nStep 4: Find the remaining beans after removing the white beans.\nRemaining beans = Remaining beans - White beans\nRemaining beans = 429 - 143 = 286\n\nStep 5: Find the number of green beans.\nHalf of the remaining beans are green, so we calculate:\nGreen beans = (1/2) * 286 = 143\n\nFinal answer: There are 143 green beans."
+    },
+    {
+      "question": "Jim collects model cars, and he has 301 models total.  Jim has 4 times as many Buicks as Fords, and 3 more than twice the number of Fords than Chevys.  How many Buicks does Jim have?",
+      "gold": "220",
+      "prediction": null,
+      "correct": false,
+      "output": "Let's break down the problem step by step to find out how many Buicks Jim has.\n\n### Step 1: Define Variables\nLet:\n- \\( C \\) = number of Chevys\n- \\( F \\) = number of Fords\n- \\( B \\) = number of Buicks\n\n### Step 2: Translate the Problem into Equations\n1. **Total Models**:  \n   Jim has a total of 301 models.  \n   \\[\n   B + F + C = 301\n   \\]\n\n2. **Buicks and Fords Relationship**:  \n   Jim has 4 times as many Buicks as Fords.  \n   \\[\n   B = 4F\n   \\]\n\n3. **Fords and Chevys Relationship**:  \n   Jim has 3 more than twice the number of Fords than Chevys.  \n   \\[\n   F = 2C + 3\n   \\]\n\n### Step 3: Substitute and Solve\nSubstitute the second equation into the first equation to express \\( B \\) in terms of \\( C \\):\n\\[\nB = 4F = 4(2C + 3) = 8C + 12\n"
+    },
+    {
+      "question": "Peter has a plan to take his family on a vacation to Germany. He needs $5,000 to cover all the spending for the travel, and he has $2,900 in savings right now. If he can save up $700 each month, how many months does he need to wait to reach his goal?",
+      "gold": "3",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine how many months it will take for Peter to save up the remaining amount needed to reach his goal of $5,000, starting with $2,900 in savings and saving $700 each month.\n\nHere are the steps to solve the problem:\n\n1. **Calculate the remaining amount needed:**\n   \\[\n   \\text{Remaining amount} = \\text{Goal} - \\text{Current savings}\n   \\]\n   \\[\n   \\text{Remaining amount} = 5000 - 2900 = 2100\n   \\]\n\n2. **Determine the number of months required to save the remaining amount:**\n   \\[\n   \\text{Number of months} = \\frac{\\text{Remaining amount}}{\\text{Savings per month}}\n   \\]\n   \\[\n   \\text{Number of months} = \\frac{2100}{700} = 3\n   \\]\n\nSo, Peter needs to wait **3 months** to reach his goal of $5,000."
+    },
+    {
+      "question": "Wendy spent 25 years as an accountant and 15 years as an accounting manager. If Wendy lived to be 80 years old, what percentage of her life did she spend in an accounting-related job?",
+      "gold": "50",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine the percentage of Wendy's life that she spent in an accounting-related job. Here's the step-by-step reasoning:\n\n1. **Calculate the total number of years Wendy spent in accounting-related jobs:**\n   - Wendy spent 25 years as an accountant.\n   - Wendy spent 15 years as an accounting manager.\n   - Total years spent in accounting-related jobs = 25 + 15 = 40 years.\n\n2. **Calculate the percentage of Wendy's life spent in an accounting-related job:**\n   - Wendy lived to be 80 years old.\n   - Percentage = (Total years spent in accounting-related jobs / Total life years) \u00d7 100\n   - Percentage = (40 / 80) \u00d7 100 = 50%.\n\nSo, Wendy spent **50%** of her life in an accounting-related job."
+    },
+    {
+      "question": "Last year, Peter organized a Fun Run for his community project and 200 people signed up. Forty people did not show up to run. This year, there will be twice as many runners as last year. How many people will run this year?",
+      "gold": "320",
+      "prediction": null,
+      "correct": false,
+      "output": "Last year, there were 200 people who signed up for the Fun Run. However, 40 people did not show up to run. Therefore, the number of people who actually ran last year is:\n\n200 - 40 = 160 people\n\nThis year, there will be twice as many runners as last year. So, the number of people who will run this year is:\n\n160 * 2 = 320 people\n\nThe final answer is: 320"
+    },
+    {
+      "question": "Dulce's father has eight orange trees on his farm. If each tree has 200 fruits and Dulce picks 2/5 of the oranges from each tree, calculate the total number of fruits remaining in all the trees.",
+      "gold": "960",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the number of fruits picked from each tree.\nDulce picks 2/5 of the oranges from each tree. To find out how many fruits she picks, we multiply the total number of fruits by 2/5:\n200 fruits/tree * 2/5 = 80 fruits/tree\n\nStep 2: Calculate the total number of fruits picked from all the trees.\nSince there are 8 trees and Dulce picks 80 fruits from each tree, we multiply the number of fruits picked from one tree by the number of trees:\n80 fruits/tree * 8 trees = 640 fruits\n\nStep 3: Calculate the total number of fruits remaining in all the trees.\nTo find the total number of fruits remaining, we subtract the total number of fruits picked from the total number of fruits:\n200 fruits/tree * 8 trees - 640 fruits = 1600 fruits - 640 fruits = 960 fruits\n\nFinal answer: There are 960 fruits remaining in all the trees."
+    },
+    {
+      "question": "Padma is trading cards with Robert. Padma started with 75 cards and traded 2 or her valuable ones for 10 of Robert's cards. Robert started with 88 of his own cards and traded another 8 of his cards for 15 of Padma's cards. How many cards were traded between both Padma and Robert?",
+      "gold": "35",
+      "prediction": null,
+      "correct": false,
+      "output": "Let's break down the problem step by step to find out how many cards were traded between Padma and Robert.\n\n### Step 1: Padma's Initial Cards\n- **Starting cards:** 75\n- **Traded cards:** 2\n\n**Calculation:**\n- **Traded cards:** 2\n- **Remaining cards:** 75 - 2 = 73\n\n### Step 2: Robert's Initial Cards\n- **Starting cards:** 88\n- **Traded cards:** 8\n\n**Calculation:**\n- **Traded cards:** 8\n- **Remaining cards:** 88 - 8 = 80\n\n### Step 3: Cards Traded Between Padma and Robert\n- **Padma's cards traded:** 10\n- **Robert's cards traded:** 15\n\n**Total cards traded:**\n- **Total traded:** 10 + 15 = 25\n\n### Final Answer\n**25** cards were traded between Padma and Robert."
+    },
+    {
+      "question": "Jason is planning a parking garage that will have 12 floors. Every 3rd floor has a gate where drivers have to show ID, which takes two minutes. To get from one floor to the next, drivers have to drive 800 feet at 10 feet/second. How long, in seconds, does it take to get to the bottom of the garage from the top?",
+      "gold": "1440",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to break it down into smaller parts and calculate the time taken for each part. Here's the step-by-step solution:\n\n1. **Calculate the time to drive from the top to the bottom:**\n   - The garage has 12 floors, so the distance from the top to the bottom is \\(12 \\times 800 = 9600\\) feet.\n   - At 10 feet/second, the time taken to drive 9600 feet is \\(\\frac{9600}{10} = 960\\) seconds.\n\n2. **Calculate the time to pass through the gates:**\n   - Every 3rd floor has a gate, so there are \\(\\frac{12}{3} = 4\\) gates.\n   - Each gate takes 2 minutes, which is \\(2 \\times 60 = 120\\) seconds.\n   - The total time to pass through all the gates is \\(4 \\times 120 = 480\\) seconds.\n\n3. **Calculate the total time:**\n   - The total time is the sum of the time to drive and the time to pass through the gates.\n   -"
+    },
+    {
+      "question": "There are 920 deer in a park. 10% of the deer have 8 antlers, and a quarter of that number also have albino fur. How many albino 8-antlered deer are there?",
+      "gold": "23",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Find the number of deer with 8 antlers.\n10% of 920 deer have 8 antlers.\nTo find 10% of 920, we multiply 920 by 0.10.\n920 * 0.10 = 92\n\nStep 2: Find the number of albino 8-antlered deer.\nA quarter of the deer with 8 antlers also have albino fur.\nTo find a quarter of 92, we divide 92 by 4.\n92 / 4 = 23\n\nSo, there are 23 albino 8-antlered deer in the park."
+    },
+    {
+      "question": "Allison went to the craft store with her friend Marie to buy some glue sticks and construction paper. Allison bought 8 more glue sticks than Marie, but Marie bought six times as many packs of construction paper as Allison. If Marie bought 15 glue sticks and 30 packs of construction paper how many craft supply items did Allison buy all together?",
+      "gold": "28",
+      "prediction": null,
+      "correct": false,
+      "output": "Let's break down the problem step by step to find out how many craft supply items Allison bought in total.\n\n### Step 1: Determine the number of glue sticks Allison bought\nMarie bought 15 glue sticks. Allison bought 8 more glue sticks than Marie.\n\n\\[\n\\text{Allison's glue sticks} = \\text{Marie's glue sticks} + 8 = 15 + 8 = 23\n\\]\n\n### Step 2: Determine the number of packs of construction paper Allison bought\nMarie bought 30 packs of construction paper. Marie bought six times as many packs of construction paper as Allison.\n\n\\[\n\\text{Marie's construction paper} = 6 \\times \\text{Allison's construction paper}\n\\]\n\nLet \\( x \\) be the number of packs of construction paper Allison bought. Then:\n\n\\[\n30 = 6x\n\\]\n\nSolving for \\( x \\):\n\n\\[\nx = \\frac{30}{6} = 5\n\\]\n\nSo, Allison bought 5 packs of construction paper.\n\n### Step 3: Calculate the total number of craft supply items Allison bought\nAllison bought 23 glue sticks and 5 packs of construction paper"
+    },
+    {
+      "question": "James gets bored with his game so decides to play a different one.  That game promises 100 hours of gameplay but 80% of that is boring grinding.  However, the expansion does add another 30 hours of enjoyable gameplay.  How much enjoyable gameplay does James get?",
+      "gold": "50",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the amount of boring grinding in the game.\nBoring grinding = 80% of 100 hours\nBoring grinding = 0.8 * 100\nBoring grinding = 80 hours\n\nStep 2: Calculate the amount of enjoyable gameplay in the game.\nEnjoyable gameplay = Total gameplay - Boring grinding\nEnjoyable gameplay = 100 hours - 80 hours\nEnjoyable gameplay = 20 hours\n\nStep 3: Add the enjoyable gameplay from the expansion.\nEnjoyable gameplay from expansion = 30 hours\n\nStep 4: Calculate the total enjoyable gameplay.\nTotal enjoyable gameplay = Enjoyable gameplay + Enjoyable gameplay from expansion\nTotal enjoyable gameplay = 20 hours + 30 hours\nTotal enjoyable gameplay = 50 hours\n\nFinal answer: James gets 50 hours of enjoyable gameplay."
+    },
+    {
+      "question": "Monica and Michelle are combining their money to throw a party. Monica brings $15. Michelle brings $12. The cake costs 15 dollars, and soda is $3 a bottle. Each bottle of soda has 12 servings and they buy as many bottles of soda as they can afford. If there are 8 total guests, how many servings of soda does each get?",
+      "gold": "6",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the total amount of money Monica and Michelle have combined.\nMonica brings $15, and Michelle brings $12, so the total amount of money they have is $15 + $12 = $27.\n\nStep 2: Calculate the amount of money left after buying the cake.\nThe cake costs $15, so the amount of money left after buying the cake is $27 - $15 = $12.\n\nStep 3: Calculate the number of bottles of soda they can buy.\nEach bottle of soda costs $3, so the number of bottles they can buy is $12 / $3 = 4 bottles.\n\nStep 4: Calculate the total number of servings of soda they can buy.\nEach bottle of soda has 12 servings, so the total number of servings they can buy is 4 bottles * 12 servings/bottle = 48 servings.\n\nStep 5: Calculate the number of servings of soda each guest gets.\nThere are 8 guests, so each guest gets 48 servings / 8 guests = 6 servings of soda.\n\nFinal answer: Each guest gets 6 servings of soda."
+    },
+    {
+      "question": "Peter is buying a set of glasses. They cost $3 for small glasses and $5 for large ones. He has $50.  If he buys 8 small ones and leaves with $1 in change, how many large ones did he buy?",
+      "gold": "5",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine how many large glasses Peter bought. Let's break it down step by step.\n\n1. **Calculate the total cost of the small glasses:**\n   - Each small glass costs $3.\n   - Peter buys 8 small glasses.\n   - Total cost for small glasses = 8 \u00d7 $3 = $24.\n\n2. **Determine the amount spent on large glasses:**\n   - Peter has $50 in total.\n   - He leaves with $1 in change.\n   - Amount spent on large glasses = $50 - $1 = $49.\n\n3. **Calculate the number of large glasses:**\n   - Each large glass costs $5.\n   - Total cost for large glasses = $49.\n   - Number of large glasses = $49 \u00f7 $5 = 9.8.\n\nSince Peter cannot buy a fraction of a large glass, we need to round down to the nearest whole number. Therefore, Peter bought 9 large glasses.\n\n4. **Final Answer:**\n   - Peter bought 9 large glasses."
+    },
+    {
+      "question": "Mara has 40 crayons and 10 percent of her crayons are pink. Luna has 50 crayons and 20 percent of them are pink. In total how many pink crayons do Mara and Luna have?",
+      "gold": "14",
+      "prediction": null,
+      "correct": false,
+      "output": "Mara has 40 crayons and 10 percent of her crayons are pink. To find out how many pink crayons Mara has, we need to calculate 10 percent of 40. We can do this by multiplying 40 by 0.10 (which is the decimal form of 10 percent). So, 40 * 0.10 = 4. This means Mara has 4 pink crayons.\nLuna has 50 crayons and 20 percent of them are pink. To find out how many pink crayons Luna has, we need to calculate 20 percent of 50. We can do this by multiplying 50 by 0.20 (which is the decimal form of 20 percent). So, 50 * 0.20 = 10. This means Luna has 10 pink crayons.\nTo find out how many pink crayons Mara and Luna have in total, we need to add the number of pink crayons Mara has to the number of pink crayons Luna has. So, 4 + 10 = 14. This means Mara and Luna have a total of 14 pink cray"
+    },
+    {
+      "question": "Jane is trying to decide whether to buy a house or a trailer. A house costs $480,000 and a trailer costs $120,000. Each loan will be paid in monthly installments over 20 years. How much more is the monthly payment on the house compared to the trailer?",
+      "gold": "1500",
+      "prediction": null,
+      "correct": false,
+      "output": "To determine how much more the monthly payment on the house is compared to the trailer, we need to calculate the monthly payment for both the house and the trailer and then find the difference.\n\n### Step 1: Calculate the monthly payment for the house\nThe house costs $480,000, and the loan is paid over 20 years (240 months). The monthly payment \\( M \\) can be calculated using the formula for the monthly payment on a loan:\n\n\\[\nM = \\frac{P \\times r \\times (1 + r)^n}{(1 + r)^n - 1}\n\\]\n\nWhere:\n- \\( P \\) is the principal amount ($480,000),\n- \\( r \\) is the monthly interest rate (annual interest rate divided by 12),\n- \\( n \\) is the number of payments (240 months).\n\nFirst, we need to find the monthly interest rate \\( r \\). The annual interest rate is 4.5%, so:\n\n\\[\nr = \\frac{4.5\\%}{12} = \\frac{0.045}{12} = 0.00375\n\\]\n\nNow,"
+    },
+    {
+      "question": "Mia is buying Christmas gifts for her family. She has spent $30 on each of her 3 siblings, and the rest of her spending was for her parents. If Mia spent a total of $150 on Christmas gifts and each of her parents received gifts of equal value, how much money, in dollars, did she spend on each parent\u2019s gift?",
+      "gold": "30",
+      "prediction": null,
+      "correct": false,
+      "output": "Mia spent $30 on each of her 3 siblings, so she spent a total of 3 * $30 = $90 on her siblings.\nShe spent a total of $150 on Christmas gifts, so she spent $150 - $90 = $60 on her parents.\nSince each of her parents received gifts of equal value, she spent $60 / 2 = $30 on each parent\u2019s gift.\nFinal answer: $30"
+    },
+    {
+      "question": "Clare's mother gave her $47 to go to the store. Clare bought 4 loaves of bread and 2 cartons of milk. Each loaf of bread cost $2 and each carton of milk cost $2. How much money does Clare have left?",
+      "gold": "35",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the total cost of the bread.\nClare bought 4 loaves of bread, and each loaf cost $2.\nTotal cost of bread = 4 loaves * $2/loaf = $8\n\nStep 2: Calculate the total cost of the milk.\nClare bought 2 cartons of milk, and each carton cost $2.\nTotal cost of milk = 2 cartons * $2/carton = $4\n\nStep 3: Calculate the total amount spent.\nTotal amount spent = Total cost of bread + Total cost of milk\nTotal amount spent = $8 + $4 = $12\n\nStep 4: Calculate the remaining money.\nClare started with $47 and spent $12.\nRemaining money = $47 - $12 = $35\n\nFinal answer: Clare has $35 left."
+    },
+    {
+      "question": "Oshea bought 200 basil seeds. He wants to plant them in planters. He has 4 large planters that can hold 20 seeds each. He also has small planters that can hold 4 seeds each. How many small planters will he need to plant all the basil seeds?",
+      "gold": "30",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the number of seeds that can be planted in the large planters.\nOshea has 4 large planters, and each can hold 20 seeds. So, the total number of seeds that can be planted in the large planters is:\n4 planters * 20 seeds/planter = 80 seeds\n\nStep 2: Calculate the number of seeds that can be planted in the small planters.\nOshea has 200 seeds in total, and 80 seeds have already been planted in the large planters. So, the number of seeds that can be planted in the small planters is:\n200 seeds - 80 seeds = 120 seeds\n\nStep 3: Calculate the number of small planters needed.\nEach small planter can hold 4 seeds. So, the number of small planters needed is:\n120 seeds / 4 seeds/planter = 30 planters\n\nStep 4: Finish with exactly one <final>number</final> tag.\nThe final answer is: 30"
+    },
+    {
+      "question": "Eric sorted 150 colored pencils into 5 containers for his art class. Before class, another teacher brought him 30 more pencils. How many can he evenly distribute between the five containers now?",
+      "gold": "36",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the number of pencils in each container before the new ones were added.\nEric sorted 150 colored pencils into 5 containers. To find out how many pencils are in each container, we divide the total number of pencils by the number of containers:\n150 pencils \u00f7 5 containers = 30 pencils per container\n\nStep 2: Add the new pencils to the existing ones.\nEric received 30 more pencils from another teacher. To find out how many pencils he has now, we add the new pencils to the existing ones:\n30 pencils + 30 pencils = 60 pencils\n\nStep 3: Determine the new total number of pencils.\nNow that Eric has 60 pencils, we can find out how many he can evenly distribute between the five containers by dividing the total number of pencils by the number of containers:\n60 pencils \u00f7 5 containers = 12 pencils per container\n\nFinal Answer: Eric can evenly distribute 12 colored pencils between the five containers now."
+    },
+    {
+      "question": "Oleg is an event organizer. He is organizing an event with 80 guests where 40 of them are men, half the number of men are women, and the rest are children. If he added 10 children to the guest list, how many children will there be at the event?",
+      "gold": "30",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the number of women at the event.\nSince half the number of men are women, we can calculate the number of women by dividing the number of men by 2.\nNumber of women = 40 / 2 = 20\n\nStep 2: Calculate the number of children at the event.\nThe total number of guests is 80, and we know there are 40 men and 20 women. To find the number of children, we subtract the number of men and women from the total number of guests.\nNumber of children = Total guests - Number of men - Number of women\nNumber of children = 80 - 40 - 20 = 20\n\nStep 3: Add 10 children to the guest list.\nIf Oleg adds 10 more children to the guest list, the total number of children at the event will be:\nTotal number of children = Number of children + 10\nTotal number of children = 20 + 10 = 30\n\nFinal answer: There will be 30 children at the event."
+    },
+    {
+      "question": "Stella collects stamps. She counted 50 pages in her collector's album. There are 5 rows of 30 stamps in each of the first 10 pages of her album. The rest of the pages each have 50 stamps. How many stamps are in Stella's album?",
+      "gold": "3500",
+      "prediction": null,
+      "correct": false,
+      "output": "Stella's album has 10 pages with 5 rows of 30 stamps each, so there are 10 * 5 * 30 = 1500 stamps in those pages.\nThe rest of the pages have 50 stamps each, so there are 50 * 50 = 2500 stamps in those pages.\nIn total, Stella's album has 1500 + 2500 = 4000 stamps.\nThe answer is 4000."
+    },
+    {
+      "question": "James gets a cable program.  The first 100 channels cost $100 and the next 100 channels cost half that much.  He splits it evenly with his roommate.  How much did he pay?",
+      "gold": "75",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the cost of the first 100 channels.\nThe first 100 channels cost $100.\n\nStep 2: Determine the cost of the next 100 channels.\nThe next 100 channels cost half of the first 100 channels, which is $100 / 2 = $50.\n\nStep 3: Calculate the total cost of the cable program.\nThe total cost is the sum of the cost of the first 100 channels and the cost of the next 100 channels, which is $100 + $50 = $150.\n\nStep 4: Determine how much James pays.\nJames splits the total cost evenly with his roommate, so he pays half of the total cost, which is $150 / 2 = $75.\n\nFinal Answer: James paid $75."
+    },
+    {
+      "question": "A desert garden\u2019s sprinkler system runs twice a day during the cool morning and evening hours. It waters the garden with four liters of water in the morning and six liters in the evening. How many days does it take the sprinkler system to use 50 liters of water?",
+      "gold": "5",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine how many days it takes for the sprinkler system to use 50 liters of water, given that it runs twice a day during the cool morning and evening hours, using 4 liters in the morning and 6 liters in the evening each time.\n\n### Step 1: Calculate the total water used per day\nThe sprinkler system uses:\n- 4 liters in the morning\n- 6 liters in the evening\n\nTotal water used per day = 4 liters + 6 liters = **10 liters**\n\n### Step 2: Determine the number of days to use 50 liters\nWe need to find out how many days it takes to use 50 liters of water. Since the sprinkler system uses 10 liters per day, we can calculate the number of days as follows:\n\nNumber of days = Total water needed / Water used per day\nNumber of days = 50 liters / 10 liters/day = **5 days**\n\n### Final Answer:\nIt takes the sprinkler system **5 days** to use 50 liters of water."
+    },
+    {
+      "question": "Mr. Langsley commutes to work every day by bus. The bus picks him up at 6:00 a.m. and takes forty minutes to arrive at the first station. If Mr. Langsley arrives at work at 9:00 a.m., what's the total time taken in minutes from the first station to Mr. Langsley's workplace?",
+      "gold": "140",
+      "prediction": null,
+      "correct": false,
+      "output": "To solve this problem, we need to determine the total time taken from the first station to Mr. Langsley's workplace. Here's the step-by-step reasoning:\n\n1. **Identify the time Mr. Langsley arrives at work:**\n   - Mr. Langsley arrives at work at 9:00 a.m.\n\n2. **Determine the time the bus picks him up:**\n   - The bus picks him up at 6:00 a.m.\n\n3. **Calculate the time difference between the arrival at work and the pickup time:**\n   - From 6:00 a.m. to 9:00 a.m. is 3 hours.\n\n4. **Convert the time difference from hours to minutes:**\n   - 3 hours = 3 \u00d7 60 minutes = 180 minutes.\n\n5. **Add the time taken by the bus to the time difference:**\n   - Total time = 180 minutes (time difference) + 40 minutes (time taken by the bus) = 220 minutes.\n\nTherefore, the total time taken from the first station to Mr. Langsley's workplace is \\boxed{220} minutes."
+    },
+    {
+      "question": "Janessa has a plan to give her brother Dexter his first collection of baseball cards. She currently has 4 cards in addition to the 13 that her father gave her.  She ordered a collection of 36 cards from eBay. After inspecting the cards she found 4 cards are in bad shape and decides to throw them away. Janessa ended up giving Dexter 29 cards. How many cards did Janessa keep for herself?",
+      "gold": "20",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Calculate the total number of cards Janessa has after receiving the 36 cards from eBay.\nTotal cards = 4 (current cards) + 13 (father's cards) + 36 (ordered cards) = 53 cards\n\nStep 2: Subtract the number of cards that Janessa threw away (4 cards) from the total number of cards.\nTotal cards after throwing away = 53 - 4 = 49 cards\n\nStep 3: Subtract the number of cards Janessa gave to Dexter (29 cards) from the remaining number of cards.\nFinal number of cards = 49 - 29 = 20 cards\n\nSo, Janessa kept 20 cards for herself."
+    },
+    {
+      "question": "John buys 3 barbells and gives $850 and gets $40 in change.  How much did each barbell cost?",
+      "gold": "270",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the total cost of the barbells.\nJohn gave $850 and received $40 in change, so the total cost of the barbells is $850 - $40 = $810.\n\nStep 2: Divide the total cost by the number of barbells to find the cost per barbell.\nJohn bought 3 barbells, so we divide the total cost by 3: $810 \u00f7 3 = $270.\n\nStep 3: Finish with the final number tag.\nThe cost of each barbell is $270."
+    },
+    {
+      "question": "Mike has earned a total of $160 in wages this week. He received the wages for his first job, then later received the wages from his second job where he works 12 hours a week. If his second job pays $9 per hour then how much money, in dollars, did Mike receive from his first job?",
+      "gold": "52",
+      "prediction": null,
+      "correct": false,
+      "output": "Step 1: Determine the total amount of money Mike received from his second job.\nSince Mike works 12 hours a week and his second job pays $9 per hour, we can calculate the total amount of money he received from his second job as follows:\nTotal amount from second job = Hours worked * Hourly rate\nTotal amount from second job = 12 hours * $9/hour\nTotal amount from second job = $108\n\nStep 2: Calculate the amount of money Mike received from his first job.\nWe know that Mike has earned a total of $160 in wages this week. To find out how much money he received from his first job, we subtract the amount he received from his second job from the total amount of wages:\nAmount from first job = Total wages - Amount from second job\nAmount from first job = $160 - $108\nAmount from first job = $52\n\nSo, Mike received $52 from his first job."
+    },
+    {
+      "question": "Wilson decides to go sledding on some nearby hills. On the 2 tall hills, he sleds down them 4 times each and on the 3 small hills, he sled down them half as often as he sleds down the tall hills. How many times did he sled down the hills?",
+      "gold": "14",
+      "prediction": null,
+      "correct": false,
+      "output": "Wilson sleds down the tall hills 2 x 4 = 8 times.\nWilson sleds down the small hills 3 x 4/2 = 6 times.\nWilson sleds down the hills 8 + 6 = 14 times.\nFinal answer: 14"
+    }
+  ]
+}
