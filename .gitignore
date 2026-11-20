@@ -1,0 +1,26 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter autosaves
+.ipynb_checkpoints/
+
+# Downloaded datasets and generated training artifacts
+/data/gsm8k/
+/data/teacher_train.jsonl
+/outputs/
+/results/
+/wandb/
+/runs/
+.cache/
+
+# Local secrets and operating system files
+.env
+.env.*
+!.env.example
+.DS_Store

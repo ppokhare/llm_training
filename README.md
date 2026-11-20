@@ -63,67 +63,11 @@ training loss, correctness reward, proportion of **zero-variance groups** in GRP
 - [Hugging Face TRL GRPOTrainer docs](https://huggingface.co/docs/trl/grpo_trainer)
 - [Tinker recipes for on-policy distillation](https://tinker-docs.thinkingmachines.ai/cookbook/recipes/distillation/)
 
-## Experiment log and evaluation protocol
+## Experiment log
 
-Keep a unique JSON result for every evaluation; do not overwrite earlier runs.
-The evaluator saves per-question outputs, generated token counts (including EOS),
-EOS presence, token-limit hits, stopping reason, tag counts, and generation time.
-Run metadata includes the selected data hash, greedy decoding flag, explicit token
-budget, model revision, device/dtype, package versions, Git state, and evaluator /
-verifier source hashes. `generation_config` records the model defaults; the
-explicit `max_new_tokens`, `do_sample`, and `pad_token_id` fields override them.
-A token-limit hit can coincide with EOS; `stop_reason` gives EOS precedence.
+256 vs 512 length for base model eval
 
-The original smoke baseline is `results/base_val_smoke.json`: untouched base,
-first 50 validation questions, greedy, 256 new tokens. It predates diagnostic
-logging. Retokenization suggests 10/50 reached the cap; raw EOS information is
-unavailable. Its strict accuracy is 2% and invalid-format rate is 98%.
+256: Accuracy 2%, invalid format: 98%, reached token cap 10/50
+512: Accuracy 2%, invalid format: 98%, reached token cap 3/50
 
-The controlled length diagnostic uses the same base model, first 50 validation
-questions, prompt, verifier, and greedy decoding, changing only the budget:
-
-```bash
-uv run python -m scripts.evaluate --split validation --max-samples 50 \
-  --max-new-tokens 512 --out results/base_val_smoke_512.json
-```
-
-This does not change the evaluator's 256-token default or GRPO's 256-token rollout
-budget. If 512 is selected for subsequent evaluation, pass it explicitly for all
-checkpoints and label those comparisons separately from the original baseline.
-Use validation to settle the protocol; reserve the official test set for finalists.
-
-For each experiment, append a dated entry below with its hypothesis, exact command,
-parent checkpoint, changed settings, result path, key metrics, interpretation, and
-next decision. Training scripts now save final trainer state after training. Preserve training
-output directories, checkpoint trainer state /
-log history, training arguments, and a terminal log. Record loss, learning rate,
-reward, output length, and zero-variance reward groups where available; evaluating
-checkpoints with this script provides accuracy and format diagnostics separately.
-Record training steps and processed tokens when comparing training methods.
-
-W&B is optional. Local JSON and this log are the source of record for this small
-comparison. A dashboard becomes useful for comparing multiple training curves or
-hyperparameter runs. Training currently uses `report_to="none"`; W&B has not been
-installed, enabled, or connected by this change.
-
-### 2026-11-20 — Base output-length diagnostic
-
-- Hypothesis: 256 tokens truncates some solutions, while missing numeric final tags
-  account for many other failures.
-- Control: original 50-question, greedy base evaluation at 256 tokens, preserved.
-- Change: run the command above at 512 tokens with diagnostic logging.
-- Result: strict accuracy 2% (1/50), invalid format 98% (49/50), mean
-  generated length 227.96 tokens including EOS, 3/50 at the 512-token cap,
-  47/50 stopped with EOS; evaluation loop took 154.9 seconds.
-- Paired check: all questions/golds match the original. Exactly the ten previously
-  capped outputs changed; the other forty outputs are identical. Seven of those
-  ten now stop with EOS. Newly finished correct prose answers still lack final tags.
-- Interpretation: more budget reduces truncation (estimated 20% to observed 6%)
-  without improving strict accuracy. Format compliance remains the main bottleneck;
-  no general EOS-stopping failure is evident.
-- Decision: recommend explicitly using 512 for subsequent checkpoint comparisons
-  to reduce the length confound. Keep the 256 result as the historical baseline;
-  the 512 result is the matching baseline for those comparisons. No training or
-  GRPO rollout settings were changed.
-- Verification: Python compilation passed; checked all 50 records for paired
-  question/gold identity, verifier agreement, token budget, and stopping metadata.
+So, we need better instruction following with SFT.
