@@ -41,6 +41,7 @@ def canonical_number(value: str | None) -> str | None:
 
 
 def extract_final(output: str) -> str | None:
+    """Score the last final-answer tag; missing or nonnumeric answers are invalid."""
     matches = FINAL_RE.findall(output)
     return canonical_number(matches[-1]) if matches else None
 
@@ -62,6 +63,7 @@ def make_prompt(question: str) -> str:
 
 
 def format_record(record: dict, idx: int) -> dict:
+    """Keep gold reasoning separate from the prompt so SFT can mask question tokens."""
     reasoning, answer = unpack_gsm_answer(record["answer"])
     prompt = make_prompt(record["question"])
     return {
@@ -77,6 +79,7 @@ def make_splits(seed: int = 42, val_fraction: float = 0.1) -> dict[str, Dataset]
     from datasets import load_dataset
 
     source = load_dataset("openai/gsm8k", "main")
+    # Stable IDs let evaluation results be paired across model checkpoints.
     raw_train = source["train"].map(lambda row, idx: format_record(row, idx), with_indices=True)
     raw_test = source["test"].map(lambda row, idx: format_record(row, 100000 + idx), with_indices=True)
     train_val = raw_train.train_test_split(test_size=val_fraction, seed=seed, shuffle=True)
@@ -102,4 +105,5 @@ def as_sft_dataset(dataset: Dataset) -> Dataset:
 
 
 def reward_exact_match(completions: list[str], answer: list[str], **kwargs) -> list[float]:
+    """Give GRPO one binary numerical-correctness reward per sampled completion."""
     return [float(extract_final(c) == canonical_number(a)) for c, a in zip(completions, answer)]

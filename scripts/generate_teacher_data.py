@@ -56,6 +56,7 @@ def main() -> None:
                     add_generation_prompt=True,
                     return_tensors="pt",
                 ).to(model.device)
+            # Retry a bounded number of times; retain at most one solution per prompt.
             for _ in range(args.attempts):
                 with torch.inference_mode():
                     generated = model.generate(
@@ -69,6 +70,7 @@ def main() -> None:
                 completion = teacher_tok.decode(
                     generated[0][ids.shape[-1] :], skip_special_tokens=True
                 )
+                # Verification filters final-answer correctness, not every reasoning step.
                 if extract_final(completion) == gold:
                     writer.write(
                         json.dumps(

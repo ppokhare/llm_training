@@ -12,6 +12,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
     root = Path(args.output)
+    # Persist the split once so every training and evaluation stage reuses it.
     for name, dataset in make_splits(seed=args.seed).items():
         dataset.save_to_disk(str(root / name))
         print(f"{name}: {len(dataset)} examples → {root / name}")

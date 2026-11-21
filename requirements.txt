@@ -1,13 +1,15 @@
-torch
+torch==2.11.0
+torchao==0.17.0 ; sys_platform == "linux"
 numpy
 pandas
-transformers
-datasets
-accelerate
+transformers==5.23.0
+datasets==5.2.0
+accelerate==1.15.0
 scikit-learn
 matplotlib
 jupyter
 ipykernel
 tqdm
-peft
-trl
+peft==0.22.0
+trl==1.18.2
+modal==1.6.4

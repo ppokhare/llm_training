@@ -24,8 +24,11 @@ def main() -> None:
     data = load_dataset("json", data_files=args.teacher_jsonl, split="train")
     if not {"prompt", "completion"}.issubset(data.column_names):
         raise ValueError("Teacher JSONL must contain prompt and completion")
+    # Teacher responses become fixed SFT targets; no teacher is loaded during training.
     data = data.select_columns(["prompt", "completion"])
+    # Continue a copy of the SFT adapter so this branch can be compared with RLVR.
     model = AutoPeftModelForCausalLM.from_pretrained(args.sft, is_trainable=True, torch_dtype="auto")
+    # Only teacher completion tokens contribute to the student's training loss.
     cfg = SFTConfig(
         output_dir=args.output, max_steps=args.steps,
         learning_rate=5e-5, max_length=512, completion_only_loss=True,

@@ -1,4 +1,8 @@
-"""Stage 2A: GRPO RL with binary, verifiable final-answer reward (RLVR)."""
+"""Continue the SFT LoRA adapter with group-relative, verifiable-reward RL.
+
+GRPO samples several answers to each training prompt and compares their rewards.
+The shared verifier scores numerical final answers without a learned reward model.
+"""
 
 import argparse
 from pathlib import Path
@@ -20,21 +24,23 @@ def main() -> None:
     args = parser.parse_args()
     if not torch.cuda.is_available():
         raise RuntimeError("GRPO training needs an NVIDIA CUDA GPU in this starter")
+    # Continue the SFT adapter rather than creating a second adapter on top of it.
     model = AutoPeftModelForCausalLM.from_pretrained(
         args.sft, is_trainable=True, torch_dtype="auto"
     )
     model.config.use_cache = False
+    # The trainer gets questions and answer keys, but never the gold reasoning.
     train_ds = as_rl_dataset(load_from_disk(str(Path(args.data) / "train")))
     cfg = GRPOConfig(
         output_dir=args.output,
         learning_rate=1e-5,
         max_steps=args.steps,
-        num_generations=4,
+        num_generations=4,  # Rewards are compared within each prompt's sample group.
         max_completion_length=256,
         per_device_train_batch_size=4,
         gradient_accumulation_steps=4,
         gradient_checkpointing=True,
-        beta=0.0,
+        beta=0.0,  # No reference-policy KL penalty in this initial configuration.
         use_vllm=False,
         logging_steps=5,
         save_strategy="steps",
