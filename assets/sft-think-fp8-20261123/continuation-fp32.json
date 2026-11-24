@@ -1,0 +1,147 @@
+{
+  "run": "sft-think-fp8-continue-20261123-222911-resume",
+  "artifact_path": "outputs/sft-think-fp8-continue-20261123-222911-resume",
+  "status": "completed training and evaluation; Trainer promoted the trainable tensors to FP32 on resume",
+  "optimizer": {
+    "restored_step": 10,
+    "token_row_adam_step": 10,
+    "restored_parameter_states": 393,
+    "checkpoint_learning_rates": [
+      0.0,
+      0.0
+    ],
+    "extended_learning_rates": [
+      0.00027,
+      0.00027
+    ],
+    "schedule_end_step": 100
+  },
+  "generation": [
+    {
+      "step": 25,
+      "n": 64,
+      "accuracy": 0.5625,
+      "think_format_rate": 0.953125,
+      "opening_tag_count": 64,
+      "closing_tag_count": 61,
+      "starts_with_opening_tag_count": 64,
+      "valid_final_count": 62,
+      "mean_output_tokens": 107.3125,
+      "token_limit_hits": 2,
+      "teacher_forced": {
+        "eval_loss": 0.5137211680412292,
+        "eval_runtime": 12.919,
+        "eval_samples_per_second": 57.899,
+        "eval_steps_per_second": 3.638,
+        "eval_entropy": 0.5236636267063466,
+        "eval_mean_token_accuracy": 0.8554559895332824,
+        "eval_num_tokens": 90174.0,
+        "epoch": 0.1187648456057007
+      }
+    },
+    {
+      "step": 50,
+      "n": 64,
+      "accuracy": 0.5625,
+      "think_format_rate": 0.984375,
+      "opening_tag_count": 64,
+      "closing_tag_count": 63,
+      "starts_with_opening_tag_count": 64,
+      "valid_final_count": 63,
+      "mean_output_tokens": 106.078125,
+      "token_limit_hits": 1,
+      "teacher_forced": {
+        "eval_loss": 0.4949599802494049,
+        "eval_runtime": 12.7844,
+        "eval_samples_per_second": 58.509,
+        "eval_steps_per_second": 3.676,
+        "eval_entropy": 0.48576523839159214,
+        "eval_mean_token_accuracy": 0.85890228317139,
+        "eval_num_tokens": 243028.0,
+        "epoch": 0.2375296912114014
+      }
+    },
+    {
+      "step": 100,
+      "n": 64,
+      "accuracy": 0.53125,
+      "think_format_rate": 1.0,
+      "opening_tag_count": 64,
+      "closing_tag_count": 64,
+      "starts_with_opening_tag_count": 64,
+      "valid_final_count": 64,
+      "mean_output_tokens": 89.5625,
+      "token_limit_hits": 0,
+      "teacher_forced": {
+        "eval_loss": 0.4855198264122009,
+        "eval_runtime": 12.6742,
+        "eval_samples_per_second": 59.017,
+        "eval_steps_per_second": 3.708,
+        "eval_entropy": 0.4894352460161169,
+        "eval_mean_token_accuracy": 0.8614555965078637,
+        "eval_num_tokens": 548294.0,
+        "epoch": 0.4750593824228028
+      }
+    }
+  ],
+  "thinking_logits": {
+    "10": {
+      "opening": {
+        "rank": 11.125,
+        "probability": 0.0018768810259643942,
+        "margin_vs_top_competitor": -0.9921875,
+        "margin_vs_other_tag": -0.640625
+      },
+      "closing": {
+        "rank": 5.8125,
+        "probability": 0.0038254686223808676,
+        "margin_vs_top_competitor": -1.5,
+        "margin_vs_other_tag": 0.9765625
+      }
+    },
+    "25": {
+      "opening": {
+        "rank": 1.0,
+        "probability": 0.8878647238016129,
+        "margin_vs_top_competitor": 2.28125,
+        "margin_vs_other_tag": 2.28125
+      },
+      "closing": {
+        "rank": 1.0625,
+        "probability": 0.6384184174239635,
+        "margin_vs_top_competitor": 0.7734375,
+        "margin_vs_other_tag": 0.8203125
+      }
+    },
+    "50": {
+      "opening": {
+        "rank": 1.0,
+        "probability": 0.9933260232210159,
+        "margin_vs_top_competitor": 5.328125,
+        "margin_vs_other_tag": 5.328125
+      },
+      "closing": {
+        "rank": 1.0625,
+        "probability": 0.9318956267088652,
+        "margin_vs_top_competitor": 4.8515625,
+        "margin_vs_other_tag": 5.1953125
+      }
+    },
+    "100": {
+      "opening": {
+        "rank": 1.0,
+        "probability": 0.9965206161141396,
+        "margin_vs_top_competitor": 6.1796875,
+        "margin_vs_other_tag": 6.1796875
+      },
+      "closing": {
+        "rank": 1.0,
+        "probability": 0.983674518764019,
+        "margin_vs_top_competitor": 5.578125,
+        "margin_vs_other_tag": 5.7734375
+      }
+    }
+  },
+  "checkpoint_dtype": "torch.float32",
+  "exact_reload_with_default_peft_dtype_policy": true
+}

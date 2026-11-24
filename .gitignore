@@ -24,3 +24,12 @@ __pycache__/
 .env.*
 !.env.example
 .DS_Store
+
+# Generated validation report and raw predictions
+/assets/thinking-validation-20261123/report.md
+/assets/thinking-validation-20261123/*-plain-1.json.gz
+/assets/thinking-validation-20261123/*-sft-think-1.json.gz
+/assets/thinking-validation-20261123/*-sft-think-8-shard[0-3].json.gz
+
+# Alternate exports of the published GRPO plots
+/assets/grpo-300-20261120/*.svg

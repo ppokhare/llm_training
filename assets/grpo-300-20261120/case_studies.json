@@ -1,0 +1,32 @@
+[
+  {
+    "id": 6009,
+    "question": "In the park, the first rose bush has 12 red flowers.  The second rose bush has 18 pink flowers.  The third rose bush has 20 yellow flowers.  The fourth rose bush has 8 orange flowers.  For her vase, Lorelei picks 50% of the red roses, 50% pink roses, 25% of the yellow roses, and 25% orange roses. How many roses are in her vase?",
+    "gold": "22",
+    "sft": {
+      "output": "Lorelei picks 12/2=6 red roses.\nShe picks 18/2=9 pink roses.\nShe picks 20/4=5 yellow roses.\nShe picks 8/4=2 orange roses.\nShe picks 50/100*6=3 red roses.\nShe picks 50/100*9=4.5 pink roses.\nShe picks 25/100*5=1.25 yellow roses.\nShe picks 25/100*2=0.5 orange roses.\nShe picks 3+4.5+1.25+0.5=9 roses.\n<final>9</final>",
+      "correct": false,
+      "generated_tokens": 149
+    },
+    "grpo": {
+      "output": "Lorelei picks 12*50%=6 red roses.\nShe picks 18*50%=9 pink roses.\nShe picks 20*25%=5 yellow roses.\nShe picks 8*25%=2 orange roses.\nIn total, she has 6+9+5+2=22 roses in her vase.\n<final>22</final>",
+      "correct": true,
+      "generated_tokens": 83
+    }
+  },
+  {
+    "id": 2437,
+    "question": "Emma's bank account has $100 in it. Each day of the week, she spends $8. At the end of the week, she goes to the bank and asks for as many $5 bills as her account can give her. She leaves the rest in the account. How many dollars remain in the account?",
+    "gold": "4",
+    "sft": {
+      "output": "Emma spends $8 a day for 7 days, so she spends 8*7 = $56\nThe remaining amount in the account is 100-56 = $44\nShe can get 44/5 = 8 $5 bills\nSo, she leaves 8*5 = $40 in the account\nThe remaining amount in the account is 44-40 = $4\n<final>4</final>",
+      "correct": true,
+      "generated_tokens": 98
+    },
+    "grpo": {
+      "output": "Emma spends $8 a day for 7 days, a total of $8 x 7 = $56.\nSo, at the end of the week, her account has $100 - $56 = $44.\nSince each $5 bill is worth $5, Emma can get $44/$5 = 8 $5 bills.\nThus, Emma leaves $5 x 8 = $40 in the account.\n<final>40</final>",
+      "correct": false,
+      "generated_tokens": 100
+    }
+  }
+]

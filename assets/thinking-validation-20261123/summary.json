@@ -1,0 +1,1485 @@
+{
+  "questions": 748,
+  "bootstrap": {
+    "resamples": 20000,
+    "seed": 42,
+    "unit": "question"
+  },
+  "evaluation_conditions": {
+    "plain-1": [
+      {
+        "dataset_sha256": "fefd64ed3f1dbf539f3e1d2a7c4a53bce3413eed7ade72099c6a8f96e0458409",
+        "prompt_template": "Solve the math problem. Show your reasoning, then finish with exactly one <final>number</final> tag.\n\nQuestion: {question}\nSolution:\n",
+        "batch_size": 64,
+        "sampling": null,
+        "eos_token_ids": [
+          151643
+        ],
+        "pad_token_id": 151643,
+        "environment": {
+          "python": "3.12.16",
+          "packages": {
+            "torch": "2.11.0",
+            "transformers": "5.23.0",
+            "datasets": "5.2.0",
+            "peft": "0.22.0",
+            "accelerate": "1.15.0"
+          },
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "model_revision": null
+        }
+      }
+    ],
+    "sft-think-1": [
+      {
+        "dataset_sha256": "d624f67b3b63d8e3722c566c83bc2f4c1bc9fbb3e0dba84b92b32797e4383da0",
+        "prompt_template": "Solve the math problem. Write your reasoning inside <think>...</think>, then finish with exactly one <final>number</final> tag.\n\nQuestion: {question}\nSolution:\n",
+        "batch_size": 64,
+        "sampling": null,
+        "eos_token_ids": [
+          151643
+        ],
+        "pad_token_id": 151643,
+        "environment": {
+          "python": "3.12.16",
+          "packages": {
+            "torch": "2.11.0",
+            "transformers": "5.23.0",
+            "datasets": "5.2.0",
+            "peft": "0.22.0",
+            "accelerate": "1.15.0"
+          },
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "model_revision": null
+        }
+      }
+    ],
+    "sft-think-8": [
+      {
+        "dataset_sha256": "2dd05346415d62d23eabf5e189286d349951c56985af4e6189d09f1a4df7fb1f",
+        "prompt_template": "Solve the math problem. Write your reasoning inside <think>...</think>, then finish with exactly one <final>number</final> tag.\n\nQuestion: {question}\nSolution:\n",
+        "batch_size": 64,
+        "sampling": {
+          "seed": 42,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0
+        },
+        "eos_token_ids": [
+          151643
+        ],
+        "pad_token_id": 151643,
+        "environment": {
+          "python": "3.12.16",
+          "packages": {
+            "torch": "2.11.0",
+            "transformers": "5.23.0",
+            "datasets": "5.2.0",
+            "peft": "0.22.0",
+            "accelerate": "1.15.0"
+          },
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "model_revision": null
+        }
+      },
+      {
+        "dataset_sha256": "31c7b28ea92504d6548378cc749689aa75a677691c468a0d49a45e228efbc7cf",
+        "prompt_template": "Solve the math problem. Write your reasoning inside <think>...</think>, then finish with exactly one <final>number</final> tag.\n\nQuestion: {question}\nSolution:\n",
+        "batch_size": 64,
+        "sampling": {
+          "seed": 43,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0
+        },
+        "eos_token_ids": [
+          151643
+        ],
+        "pad_token_id": 151643,
+        "environment": {
+          "python": "3.12.16",
+          "packages": {
+            "torch": "2.11.0",
+            "transformers": "5.23.0",
+            "datasets": "5.2.0",
+            "peft": "0.22.0",
+            "accelerate": "1.15.0"
+          },
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "model_revision": null
+        }
+      },
+      {
+        "dataset_sha256": "8afb03f1fda60dd75fd94a79213958e6c21b822c80e1af102b5fdf77fffca3c5",
+        "prompt_template": "Solve the math problem. Write your reasoning inside <think>...</think>, then finish with exactly one <final>number</final> tag.\n\nQuestion: {question}\nSolution:\n",
+        "batch_size": 64,
+        "sampling": {
+          "seed": 44,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0
+        },
+        "eos_token_ids": [
+          151643
+        ],
+        "pad_token_id": 151643,
+        "environment": {
+          "python": "3.12.16",
+          "packages": {
+            "torch": "2.11.0",
+            "transformers": "5.23.0",
+            "datasets": "5.2.0",
+            "peft": "0.22.0",
+            "accelerate": "1.15.0"
+          },
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "model_revision": null
+        }
+      },
+      {
+        "dataset_sha256": "6b4c1e5e5af61eccc008ad3d74830c8b98f3b6e503c1e7e92868154c364da99b",
+        "prompt_template": "Solve the math problem. Write your reasoning inside <think>...</think>, then finish with exactly one <final>number</final> tag.\n\nQuestion: {question}\nSolution:\n",
+        "batch_size": 64,
+        "sampling": {
+          "seed": 45,
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0
+        },
+        "eos_token_ids": [
+          151643
+        ],
+        "pad_token_id": 151643,
+        "environment": {
+          "python": "3.12.16",
+          "packages": {
+            "torch": "2.11.0",
+            "transformers": "5.23.0",
+            "datasets": "5.2.0",
+            "peft": "0.22.0",
+            "accelerate": "1.15.0"
+          },
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "model_revision": null
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "plain-1": {
+      "original": {
+        "numerical_accuracy": 0.6163101604278075,
+        "think_compliance": 0.0,
+        "parseable_final": 0.9879679144385026,
+        "single_valid_final": 0.9879679144385026,
+        "mean_new_tokens": 96.725935828877,
+        "cap_hits": 5,
+        "length_stops": 5,
+        "cap_rate": 0.0066844919786096255
+      },
+      "step50": {
+        "numerical_accuracy": 0.44385026737967914,
+        "think_compliance": 0.0,
+        "parseable_final": 0.9184491978609626,
+        "single_valid_final": 0.9184491978609626,
+        "mean_new_tokens": 104.05748663101605,
+        "cap_hits": 34,
+        "length_stops": 34,
+        "cap_rate": 0.045454545454545456
+      },
+      "step100": {
+        "numerical_accuracy": 0.4786096256684492,
+        "think_compliance": 0.0,
+        "parseable_final": 0.9438502673796791,
+        "single_valid_final": 0.9438502673796791,
+        "mean_new_tokens": 103.39171122994652,
+        "cap_hits": 34,
+        "length_stops": 34,
+        "cap_rate": 0.045454545454545456
+      }
+    },
+    "sft-think-1": {
+      "original": {
+        "numerical_accuracy": 0.6122994652406417,
+        "think_compliance": 0.0,
+        "parseable_final": 0.9919786096256684,
+        "single_valid_final": 0.9919786096256684,
+        "mean_new_tokens": 95.46791443850267,
+        "cap_hits": 5,
+        "length_stops": 5,
+        "cap_rate": 0.0066844919786096255
+      },
+      "step50": {
+        "numerical_accuracy": 0.6243315508021391,
+        "think_compliance": 0.9959893048128342,
+        "parseable_final": 0.9946524064171123,
+        "single_valid_final": 0.9946524064171123,
+        "mean_new_tokens": 99.74598930481284,
+        "cap_hits": 3,
+        "length_stops": 3,
+        "cap_rate": 0.004010695187165776
+      },
+      "step100": {
+        "numerical_accuracy": 0.6363636363636364,
+        "think_compliance": 0.9933155080213903,
+        "parseable_final": 0.9919786096256684,
+        "single_valid_final": 0.9919786096256684,
+        "mean_new_tokens": 95.83957219251337,
+        "cap_hits": 5,
+        "length_stops": 5,
+        "cap_rate": 0.0066844919786096255
+      }
+    },
+    "sft-think-8": {
+      "original": {
+        "numerical_accuracy": 0.361798128342246,
+        "think_compliance": 0.0,
+        "parseable_final": 0.9669117647058824,
+        "single_valid_final": 0.9662433155080213,
+        "mean_new_tokens": 106.16844919786097,
+        "cap_hits": 20,
+        "length_stops": 19,
+        "cap_rate": 0.0033422459893048127,
+        "pass_at_1": 0.361798128342246,
+        "pass_at_8": 0.7981283422459893,
+        "mixed_reward_fraction": 0.7754010695187166,
+        "all_correct_fraction": 0.022727272727272728,
+        "all_wrong_fraction": 0.2018716577540107,
+        "correct_count_histogram": [
+          151,
+          112,
+          110,
+          97,
+          71,
+          76,
+          56,
+          58,
+          17
+        ],
+        "mean_within_group_reward_std": 0.33068928975396567,
+        "mean_distinct_valid_answers": 5.116310160427807
+      },
+      "step50": {
+        "numerical_accuracy": 0.3668114973262032,
+        "think_compliance": 0.9682486631016043,
+        "parseable_final": 0.9948195187165776,
+        "single_valid_final": 0.9948195187165776,
+        "mean_new_tokens": 107.23963903743315,
+        "cap_hits": 5,
+        "length_stops": 5,
+        "cap_rate": 0.0008355614973262032,
+        "pass_at_1": 0.3668114973262032,
+        "pass_at_8": 0.8048128342245989,
+        "mixed_reward_fraction": 0.7593582887700535,
+        "all_correct_fraction": 0.045454545454545456,
+        "all_wrong_fraction": 0.19518716577540107,
+        "correct_count_histogram": [
+          146,
+          125,
+          114,
+          77,
+          68,
+          79,
+          63,
+          42,
+          34
+        ],
+        "mean_within_group_reward_std": 0.3227225696583433,
+        "mean_distinct_valid_answers": 5.248663101604278
+      },
+      "step100": {
+        "numerical_accuracy": 0.3713235294117647,
+        "think_compliance": 0.9829545454545454,
+        "parseable_final": 0.9964906417112299,
+        "single_valid_final": 0.9964906417112299,
+        "mean_new_tokens": 105.62750668449198,
+        "cap_hits": 3,
+        "length_stops": 3,
+        "cap_rate": 0.000501336898395722,
+        "pass_at_1": 0.3713235294117647,
+        "pass_at_8": 0.8074866310160428,
+        "mixed_reward_fraction": 0.7794117647058824,
+        "all_correct_fraction": 0.02807486631016043,
+        "all_wrong_fraction": 0.1925133689839572,
+        "correct_count_histogram": [
+          144,
+          114,
+          99,
+          100,
+          78,
+          73,
+          68,
+          51,
+          21
+        ],
+        "mean_within_group_reward_std": 0.3337366401984534,
+        "mean_distinct_valid_answers": 5.266042780748663
+      }
+    }
+  },
+  "paired": {
+    "plain-1": {
+      "step50_minus_original": {
+        "accuracy": {
+          "change": -0.17245989304812834,
+          "ci95": [
+            -0.21256684491978609,
+            -0.1323529411764706
+          ],
+          "improved_questions": 61,
+          "regressed_questions": 190
+        }
+      },
+      "step100_minus_original": {
+        "accuracy": {
+          "change": -0.13770053475935828,
+          "ci95": [
+            -0.17780748663101603,
+            -0.09759358288770054
+          ],
+          "improved_questions": 71,
+          "regressed_questions": 174
+        }
+      },
+      "step100_minus_step50": {
+        "accuracy": {
+          "change": 0.034759358288770054,
+          "ci95": [
+            0.0,
+            0.06951871657754011
+          ],
+          "improved_questions": 102,
+          "regressed_questions": 76
+        }
+      }
+    },
+    "sft-think-1": {
+      "step50_minus_original": {
+        "accuracy": {
+          "change": 0.012032085561497326,
+          "ci95": [
+            -0.020086898395721895,
+            0.045454545454545456
+          ],
+          "improved_questions": 85,
+          "regressed_questions": 76
+        }
+      },
+      "step100_minus_original": {
+        "accuracy": {
+          "change": 0.02406417112299465,
+          "ci95": [
+            -0.0066844919786096255,
+            0.05481283422459893
+          ],
+          "improved_questions": 78,
+          "regressed_questions": 60
+        }
+      },
+      "step100_minus_step50": {
+        "accuracy": {
+          "change": 0.012032085561497326,
+          "ci95": [
+            -0.01871657754010695,
+            0.0427807486631016
+          ],
+          "improved_questions": 75,
+          "regressed_questions": 66
+        }
+      }
+    },
+    "sft-think-8": {
+      "step50_minus_original": {
+        "accuracy": {
+          "change": 0.005013368983957219,
+          "ci95": [
+            -0.01019385026737968,
+            0.019886363636363636
+          ],
+          "improved_questions": 271,
+          "regressed_questions": 255
+        },
+        "pass_at_8": {
+          "change": 0.0066844919786096255,
+          "ci95": [
+            -0.02406417112299465,
+            0.0374331550802139
+          ],
+          "improved_questions": 73,
+          "regressed_questions": 68
+        }
+      },
+      "step100_minus_original": {
+        "accuracy": {
+          "change": 0.009525401069518716,
+          "ci95": [
+            -0.00518048128342246,
+            0.024068348930480918
+          ],
+          "improved_questions": 265,
+          "regressed_questions": 246
+        },
+        "pass_at_8": {
+          "change": 0.009358288770053475,
+          "ci95": [
+            -0.020053475935828877,
+            0.03877005347593583
+          ],
+          "improved_questions": 68,
+          "regressed_questions": 61
+        }
+      },
+      "step100_minus_step50": {
+        "accuracy": {
+          "change": 0.004512032085561497,
+          "ci95": [
+            -0.009191176470588236,
+            0.018219418449197496
+          ],
+          "improved_questions": 251,
+          "regressed_questions": 252
+        },
+        "pass_at_8": {
+          "change": 0.00267379679144385,
+          "ci95": [
+            -0.026737967914438502,
+            0.03342245989304813
+          ],
+          "improved_questions": 67,
+          "regressed_questions": 65
+        }
+      }
+    }
+  },
+  "training": {
+    "precision": "fp8",
+    "model_revision": null,
+    "data_fingerprints": {
+      "train": "ae16ef95220d515c",
+      "validation": "0c59ed8ac1134b75"
+    },
+    "seed": 42,
+    "completion_only_loss": true,
+    "max_length": 1024,
+    "continued_from": null,
+    "resumed_checkpoint": "/store/outputs/sft-think-fp8-resume-20261123-222025-verification/adapter/checkpoint-10",
+    "completed_steps": 100,
+    "token_row_adaptation": null,
+    "thinking_format": true,
+    "attention": "sdpa",
+    "learning_rate": 0.0003,
+    "eval_at": [
+      25,
+      50,
+      100
+    ],
+    "adapter_config_count": 1,
+    "adapter_ranks": [
+      16
+    ],
+    "changed_adapter_tensors": null,
+    "fp8_backend": "torchao",
+    "fp8_layers": [
+      "base_model.model.model.layers.0.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.0.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.0.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.0.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.0.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.0.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.0.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.1.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.1.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.1.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.1.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.1.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.1.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.1.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.2.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.2.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.2.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.2.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.2.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.2.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.2.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.3.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.3.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.3.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.3.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.3.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.3.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.3.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.4.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.4.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.4.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.4.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.4.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.4.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.4.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.5.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.5.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.5.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.5.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.5.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.5.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.5.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.6.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.6.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.6.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.6.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.6.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.6.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.6.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.7.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.7.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.7.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.7.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.7.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.7.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.7.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.8.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.8.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.8.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.8.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.8.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.8.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.8.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.9.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.9.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.9.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.9.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.9.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.9.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.9.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.10.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.10.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.10.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.10.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.10.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.10.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.10.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.11.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.11.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.11.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.11.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.11.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.11.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.11.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.12.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.12.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.12.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.12.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.12.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.12.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.12.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.13.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.13.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.13.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.13.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.13.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.13.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.13.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.14.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.14.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.14.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.14.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.14.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.14.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.14.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.15.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.15.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.15.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.15.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.15.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.15.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.15.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.16.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.16.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.16.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.16.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.16.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.16.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.16.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.17.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.17.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.17.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.17.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.17.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.17.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.17.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.18.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.18.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.18.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.18.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.18.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.18.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.18.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.19.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.19.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.19.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.19.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.19.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.19.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.19.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.20.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.20.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.20.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.20.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.20.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.20.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.20.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.21.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.21.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.21.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.21.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.21.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.21.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.21.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.22.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.22.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.22.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.22.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.22.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.22.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.22.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.23.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.23.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.23.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.23.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.23.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.23.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.23.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.24.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.24.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.24.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.24.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.24.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.24.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.24.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.25.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.25.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.25.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.25.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.25.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.25.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.25.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.26.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.26.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.26.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.26.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.26.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.26.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.26.mlp.down_proj.base_layer",
+      "base_model.model.model.layers.27.self_attn.q_proj.base_layer",
+      "base_model.model.model.layers.27.self_attn.k_proj.base_layer",
+      "base_model.model.model.layers.27.self_attn.v_proj.base_layer",
+      "base_model.model.model.layers.27.self_attn.o_proj.base_layer",
+      "base_model.model.model.layers.27.mlp.gate_proj.base_layer",
+      "base_model.model.model.layers.27.mlp.up_proj.base_layer",
+      "base_model.model.model.layers.27.mlp.down_proj.base_layer"
+    ],
+    "smoke_scaled_mm_events": 784,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "gpu_total_memory_gib": 79.19146728515625,
+    "steps": 100,
+    "eval_steps": 25,
+    "eval_on_start": false,
+    "logging_steps": 5,
+    "save_steps": 100,
+    "smoke_test": false,
+    "batch_size": 16,
+    "eval_batch_size": 16,
+    "truncation": {
+      "train": {
+        "examples": 6725,
+        "truncated": 0,
+        "lost_final_answer": 0,
+        "longest_tokens": 483,
+        "max_length": 1024
+      },
+      "validation": {
+        "examples": 748,
+        "truncated": 0,
+        "lost_final_answer": 0,
+        "longest_tokens": 439,
+        "max_length": 1024
+      }
+    },
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size": 32,
+    "gradient_checkpointing": false,
+    "peak_gpu_allocated_gib": 15.0435471534729,
+    "peak_gpu_reserved_gib": 17.123046875,
+    "training_metrics": {
+      "train_runtime": 793.2643,
+      "train_samples_per_second": 3.631,
+      "train_steps_per_second": 0.113,
+      "total_flos": 2694894512504832.0,
+      "train_loss": 0.5157115300496419,
+      "epoch": 0.4750593824228028
+    },
+    "packages": {
+      "torch": "2.11.0",
+      "transformers": "5.23.0",
+      "trl": "1.18.2",
+      "peft": "0.22.0",
+      "accelerate": "1.15.0",
+      "torchao": "0.17.0"
+    }
+  },
+  "training_history": [
+    {
+      "entropy": 0.8512106478214264,
+      "epoch": 0.023752969121140142,
+      "grad_norm": 1.96875,
+      "learning_rate": 0.00017999999999999998,
+      "loss": 0.8480701446533203,
+      "mean_token_accuracy": 0.8102724254131317,
+      "num_tokens": 32412.0,
+      "step": 5
+    },
+    {
+      "entropy": 0.6980908691883088,
+      "epoch": 0.047505938242280284,
+      "grad_norm": 2.296875,
+      "learning_rate": 2.9999999999999997e-05,
+      "loss": 0.6540682792663575,
+      "mean_token_accuracy": 0.8304566740989685,
+      "num_tokens": 62438.0,
+      "step": 10
+    },
+    {
+      "epoch": 0.047505938242280284,
+      "eval_entropy": 0.6960053532681567,
+      "eval_loss": 0.6446160078048706,
+      "eval_mean_token_accuracy": 0.8319844806447942,
+      "eval_num_tokens": 62438.0,
+      "eval_runtime": 8.9342,
+      "eval_samples_per_second": 83.723,
+      "eval_steps_per_second": 5.261,
+      "step": 10
+    },
+    {
+      "entropy": 0.7156976580619812,
+      "epoch": 0.07125890736342043,
+      "grad_norm": 1.9765625,
+      "learning_rate": 0.000258,
+      "loss": 0.6439502716064454,
+      "mean_token_accuracy": 0.8297775745391845,
+      "num_tokens": 30727.0,
+      "step": 15
+    },
+    {
+      "entropy": 0.5962747156620025,
+      "epoch": 0.09501187648456057,
+      "grad_norm": 0.75,
+      "learning_rate": 0.000243,
+      "loss": 0.5239405155181884,
+      "mean_token_accuracy": 0.8500571727752686,
+      "num_tokens": 60130.0,
+      "step": 20
+    },
+    {
+      "entropy": 0.5519813597202301,
+      "epoch": 0.1187648456057007,
+      "grad_norm": 0.64453125,
+      "learning_rate": 0.00022799999999999999,
+      "loss": 0.5353383541107177,
+      "mean_token_accuracy": 0.8479667246341706,
+      "num_tokens": 90174.0,
+      "step": 25
+    },
+    {
+      "epoch": 0.1187648456057007,
+      "eval_entropy": 0.5289846259228727,
+      "eval_loss": 0.5122855305671692,
+      "eval_mean_token_accuracy": 0.855553851482716,
+      "eval_num_tokens": 90174.0,
+      "eval_runtime": 11.6649,
+      "eval_samples_per_second": 64.124,
+      "eval_steps_per_second": 4.029,
+      "step": 25
+    },
+    {
+      "entropy": 0.5191423773765564,
+      "epoch": 0.14251781472684086,
+      "grad_norm": 0.53515625,
+      "learning_rate": 0.00021299999999999997,
+      "loss": 0.5035866737365723,
+      "mean_token_accuracy": 0.8563612639904022,
+      "num_tokens": 120239.0,
+      "step": 30
+    },
+    {
+      "entropy": 0.4853623390197754,
+      "epoch": 0.166270783847981,
+      "grad_norm": 0.435546875,
+      "learning_rate": 0.000198,
+      "loss": 0.498852014541626,
+      "mean_token_accuracy": 0.8590824365615845,
+      "num_tokens": 150662.0,
+      "step": 35
+    },
+    {
+      "entropy": 0.5091081827878952,
+      "epoch": 0.19002375296912113,
+      "grad_norm": 0.439453125,
+      "learning_rate": 0.00018299999999999998,
+      "loss": 0.5000366687774658,
+      "mean_token_accuracy": 0.858572518825531,
+      "num_tokens": 180618.0,
+      "step": 40
+    },
+    {
+      "entropy": 0.511785352230072,
+      "epoch": 0.21377672209026127,
+      "grad_norm": 0.328125,
+      "learning_rate": 0.000168,
+      "loss": 0.5016671657562256,
+      "mean_token_accuracy": 0.8575439095497132,
+      "num_tokens": 211159.0,
+      "step": 45
+    },
+    {
+      "entropy": 0.5036866217851639,
+      "epoch": 0.2375296912114014,
+      "grad_norm": 0.33984375,
+      "learning_rate": 0.00015299999999999998,
+      "loss": 0.5235129356384277,
+      "mean_token_accuracy": 0.8524616122245788,
+      "num_tokens": 243028.0,
+      "step": 50
+    },
+    {
+      "epoch": 0.2375296912114014,
+      "eval_entropy": 0.4845639124829718,
+      "eval_loss": 0.4945858120918274,
+      "eval_mean_token_accuracy": 0.8601260083786985,
+      "eval_num_tokens": 243028.0,
+      "eval_runtime": 11.5161,
+      "eval_samples_per_second": 64.952,
+      "eval_steps_per_second": 4.081,
+      "step": 50
+    },
+    {
+      "entropy": 0.4868547797203064,
+      "epoch": 0.26128266033254155,
+      "grad_norm": 0.34375,
+      "learning_rate": 0.000138,
+      "loss": 0.4957242012023926,
+      "mean_token_accuracy": 0.858022028207779,
+      "num_tokens": 273174.0,
+      "step": 55
+    },
+    {
+      "entropy": 0.5270907193422317,
+      "epoch": 0.2850356294536817,
+      "grad_norm": 0.353515625,
+      "learning_rate": 0.00012299999999999998,
+      "loss": 0.5198673725128173,
+      "mean_token_accuracy": 0.8492079198360443,
+      "num_tokens": 304124.0,
+      "step": 60
+    },
+    {
+      "entropy": 0.5216906189918518,
+      "epoch": 0.3087885985748218,
+      "grad_norm": 0.3359375,
+      "learning_rate": 0.00010799999999999998,
+      "loss": 0.5099436283111572,
+      "mean_token_accuracy": 0.8544847071170807,
+      "num_tokens": 334917.0,
+      "step": 65
+    },
+    {
+      "entropy": 0.5043488621711731,
+      "epoch": 0.332541567695962,
+      "grad_norm": 0.3828125,
+      "learning_rate": 9.3e-05,
+      "loss": 0.5133672237396241,
+      "mean_token_accuracy": 0.8544939994812012,
+      "num_tokens": 365128.0,
+      "step": 70
+    },
+    {
+      "entropy": 0.5249860614538193,
+      "epoch": 0.35629453681710216,
+      "grad_norm": 0.37109375,
+      "learning_rate": 7.8e-05,
+      "loss": 0.5262468338012696,
+      "mean_token_accuracy": 0.8493844866752625,
+      "num_tokens": 395652.0,
+      "step": 75
+    },
+    {
+      "entropy": 0.517772701382637,
+      "epoch": 0.38004750593824227,
+      "grad_norm": 0.36328125,
+      "learning_rate": 6.299999999999999e-05,
+      "loss": 0.5043868541717529,
+      "mean_token_accuracy": 0.8561960577964782,
+      "num_tokens": 426752.0,
+      "step": 80
+    },
+    {
+      "entropy": 0.5031017422676086,
+      "epoch": 0.40380047505938244,
+      "grad_norm": 0.40625,
+      "learning_rate": 4.7999999999999994e-05,
+      "loss": 0.485306453704834,
+      "mean_token_accuracy": 0.858336353302002,
+      "num_tokens": 456662.0,
+      "step": 85
+    },
+    {
+      "entropy": 0.5093885034322738,
+      "epoch": 0.42755344418052255,
+      "grad_norm": 0.33203125,
+      "learning_rate": 3.2999999999999996e-05,
+      "loss": 0.49795141220092776,
+      "mean_token_accuracy": 0.857338947057724,
+      "num_tokens": 487787.0,
+      "step": 90
+    },
+    {
+      "entropy": 0.49735547602176666,
+      "epoch": 0.4513064133016627,
+      "grad_norm": 0.330078125,
+      "learning_rate": 1.7999999999999997e-05,
+      "loss": 0.5056806564331054,
+      "mean_token_accuracy": 0.8552772581577301,
+      "num_tokens": 517931.0,
+      "step": 95
+    },
+    {
+      "entropy": 0.5084292441606522,
+      "epoch": 0.4750593824228028,
+      "grad_norm": 0.345703125,
+      "learning_rate": 2.9999999999999997e-06,
+      "loss": 0.49344830513000487,
+      "mean_token_accuracy": 0.8579735040664673,
+      "num_tokens": 548294.0,
+      "step": 100
+    },
+    {
+      "epoch": 0.4750593824228028,
+      "eval_entropy": 0.4907267803841449,
+      "eval_loss": 0.48528531193733215,
+      "eval_mean_token_accuracy": 0.8611766163339006,
+      "eval_num_tokens": 548294.0,
+      "eval_runtime": 11.6449,
+      "eval_samples_per_second": 64.234,
+      "eval_steps_per_second": 4.036,
+      "step": 100
+    },
+    {
+      "entropy": 0.5114853352308273,
+      "epoch": 0.498812351543943,
+      "grad_norm": 0.349609375,
+      "learning_rate": 9.799999999999998e-05,
+      "loss": 0.5241700172424316,
+      "mean_token_accuracy": 0.8510306119918823,
+      "num_tokens": 30312.0,
+      "step": 105
+    },
+    {
+      "entropy": 0.5158017784357071,
+      "epoch": 0.5225653206650831,
+      "grad_norm": 0.345703125,
+      "learning_rate": 9.55e-05,
+      "loss": 0.521442985534668,
+      "mean_token_accuracy": 0.8500519931316376,
+      "num_tokens": 61582.0,
+      "step": 110
+    },
+    {
+      "entropy": 0.49874200522899625,
+      "epoch": 0.5463182897862233,
+      "grad_norm": 0.328125,
+      "learning_rate": 9.3e-05,
+      "loss": 0.4831512451171875,
+      "mean_token_accuracy": 0.8616094410419464,
+      "num_tokens": 91403.0,
+      "step": 115
+    },
+    {
+      "entropy": 0.5280742615461349,
+      "epoch": 0.5700712589073634,
+      "grad_norm": 0.404296875,
+      "learning_rate": 9.05e-05,
+      "loss": 0.5432386875152588,
+      "mean_token_accuracy": 0.8492267251014709,
+      "num_tokens": 121025.0,
+      "step": 120
+    },
+    {
+      "entropy": 0.4915690988302231,
+      "epoch": 0.5938242280285035,
+      "grad_norm": 0.373046875,
+      "learning_rate": 8.8e-05,
+      "loss": 0.4868791103363037,
+      "mean_token_accuracy": 0.8624770760536193,
+      "num_tokens": 151552.0,
+      "step": 125
+    },
+    {
+      "entropy": 0.5262378811836242,
+      "epoch": 0.6175771971496437,
+      "grad_norm": 0.384765625,
+      "learning_rate": 8.549999999999999e-05,
+      "loss": 0.5287737369537353,
+      "mean_token_accuracy": 0.8485236406326294,
+      "num_tokens": 181660.0,
+      "step": 130
+    },
+    {
+      "entropy": 0.4949700266122818,
+      "epoch": 0.6413301662707839,
+      "grad_norm": 0.41015625,
+      "learning_rate": 8.3e-05,
+      "loss": 0.488877010345459,
+      "mean_token_accuracy": 0.8588911175727845,
+      "num_tokens": 212723.0,
+      "step": 135
+    },
+    {
+      "entropy": 0.5477315276861191,
+      "epoch": 0.665083135391924,
+      "grad_norm": 0.376953125,
+      "learning_rate": 8.049999999999999e-05,
+      "loss": 0.5584547042846679,
+      "mean_token_accuracy": 0.8469214498996734,
+      "num_tokens": 243870.0,
+      "step": 140
+    },
+    {
+      "entropy": 0.5223253667354584,
+      "epoch": 0.6888361045130641,
+      "grad_norm": 0.365234375,
+      "learning_rate": 7.8e-05,
+      "loss": 0.5316280364990235,
+      "mean_token_accuracy": 0.8486530125141144,
+      "num_tokens": 275464.0,
+      "step": 145
+    },
+    {
+      "entropy": 0.5185436815023422,
+      "epoch": 0.7125890736342043,
+      "grad_norm": 0.435546875,
+      "learning_rate": 7.549999999999999e-05,
+      "loss": 0.5244905948638916,
+      "mean_token_accuracy": 0.8526611030101776,
+      "num_tokens": 306857.0,
+      "step": 150
+    },
+    {
+      "epoch": 0.7125890736342043,
+      "eval_entropy": 0.4945138115832146,
+      "eval_loss": 0.47988757491111755,
+      "eval_mean_token_accuracy": 0.8630783570573685,
+      "eval_num_tokens": 306857.0,
+      "eval_runtime": 12.0609,
+      "eval_samples_per_second": 62.019,
+      "eval_steps_per_second": 3.897,
+      "step": 150
+    },
+    {
+      "epoch": 0.7125890736342043,
+      "step": 150,
+      "total_flos": 4087325883629568.0,
+      "train_loss": 0.5191106128692627,
+      "train_runtime": 108.347,
+      "train_samples_per_second": 14.767,
+      "train_steps_per_second": 0.461
+    }
+  ],
+  "extension": [
+    {
+      "step": 150,
+      "decision": {
+        "step": 150,
+        "checkpoint": "/store/outputs/thinking-sft-extension-20261123-232500/stage-150/checkpoint-150",
+        "thinking_accuracy_change": -0.02807486631016043,
+        "thinking_format_drop": 0.005347593582887722,
+        "plain_accuracy_drop": -0.022727272727272707,
+        "continue": false
+      },
+      "metrics": {
+        "plain": {
+          "numerical_accuracy": 0.5013368983957219,
+          "think_compliance": 0.0,
+          "parseable_final": 0.9491978609625669,
+          "single_valid_final": 0.9491978609625669,
+          "mean_new_tokens": 108.18048128342247,
+          "cap_hits": 32,
+          "length_stops": 32,
+          "cap_rate": 0.0427807486631016
+        },
+        "sft-think": {
+          "numerical_accuracy": 0.6082887700534759,
+          "think_compliance": 0.9879679144385026,
+          "parseable_final": 0.9852941176470589,
+          "single_valid_final": 0.9852941176470589,
+          "mean_new_tokens": 97.77272727272727,
+          "cap_hits": 9,
+          "length_stops": 9,
+          "cap_rate": 0.012032085561497326
+        }
+      },
+      "paired": {
+        "plain": {
+          "change": 0.022727272727272728,
+          "ci95": [
+            -0.008021390374331552,
+            0.053475935828877004
+          ],
+          "improved_questions": 79,
+          "regressed_questions": 62
+        },
+        "sft-think": {
+          "change": -0.02807486631016043,
+          "ci95": [
+            -0.05748663101604278,
+            0.001336898395721925
+          ],
+          "improved_questions": 50,
+          "regressed_questions": 71
+        }
+      },
+      "training": {
+        "precision": "fp8",
+        "model_revision": null,
+        "data_fingerprints": {
+          "train": "ae16ef95220d515c",
+          "validation": "0c59ed8ac1134b75"
+        },
+        "seed": 42,
+        "completion_only_loss": true,
+        "max_length": 1024,
+        "continued_from": null,
+        "resumed_checkpoint": "/store/outputs/sft-think-fp8-continue-bf16-20261123-224223-resume/adapter/checkpoint-100",
+        "completed_steps": 150,
+        "token_row_adaptation": null,
+        "thinking_format": true,
+        "attention": "sdpa",
+        "learning_rate": 0.00015,
+        "eval_at": [
+          150
+        ],
+        "adapter_config_count": 1,
+        "adapter_ranks": [
+          16
+        ],
+        "changed_adapter_tensors": null,
+        "fp8_backend": "torchao",
+        "fp8_layers": [
+          "base_model.model.model.layers.0.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.0.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.0.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.0.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.0.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.0.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.0.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.1.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.1.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.1.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.1.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.1.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.1.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.1.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.2.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.2.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.2.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.2.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.2.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.2.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.2.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.3.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.3.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.3.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.3.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.3.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.3.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.3.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.4.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.4.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.4.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.4.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.4.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.4.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.4.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.5.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.5.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.5.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.5.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.5.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.5.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.5.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.6.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.6.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.6.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.6.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.6.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.6.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.6.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.7.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.7.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.7.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.7.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.7.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.7.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.7.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.8.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.8.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.8.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.8.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.8.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.8.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.8.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.9.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.9.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.9.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.9.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.9.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.9.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.9.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.10.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.10.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.10.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.10.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.10.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.10.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.10.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.11.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.11.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.11.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.11.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.11.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.11.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.11.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.12.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.12.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.12.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.12.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.12.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.12.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.12.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.13.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.13.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.13.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.13.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.13.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.13.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.13.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.14.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.14.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.14.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.14.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.14.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.14.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.14.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.15.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.15.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.15.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.15.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.15.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.15.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.15.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.16.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.16.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.16.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.16.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.16.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.16.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.16.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.17.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.17.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.17.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.17.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.17.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.17.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.17.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.18.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.18.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.18.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.18.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.18.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.18.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.18.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.19.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.19.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.19.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.19.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.19.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.19.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.19.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.20.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.20.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.20.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.20.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.20.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.20.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.20.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.21.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.21.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.21.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.21.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.21.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.21.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.21.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.22.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.22.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.22.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.22.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.22.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.22.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.22.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.23.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.23.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.23.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.23.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.23.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.23.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.23.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.24.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.24.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.24.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.24.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.24.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.24.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.24.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.25.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.25.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.25.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.25.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.25.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.25.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.25.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.26.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.26.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.26.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.26.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.26.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.26.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.26.mlp.down_proj.base_layer",
+          "base_model.model.model.layers.27.self_attn.q_proj.base_layer",
+          "base_model.model.model.layers.27.self_attn.k_proj.base_layer",
+          "base_model.model.model.layers.27.self_attn.v_proj.base_layer",
+          "base_model.model.model.layers.27.self_attn.o_proj.base_layer",
+          "base_model.model.model.layers.27.mlp.gate_proj.base_layer",
+          "base_model.model.model.layers.27.mlp.up_proj.base_layer",
+          "base_model.model.model.layers.27.mlp.down_proj.base_layer"
+        ],
+        "smoke_scaled_mm_events": 784,
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "gpu_total_memory_gib": 79.19146728515625,
+        "steps": 300,
+        "eval_steps": 25,
+        "eval_on_start": false,
+        "logging_steps": 5,
+        "save_steps": 100,
+        "smoke_test": false,
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "truncation": {
+          "train": {
+            "examples": 6725,
+            "truncated": 0,
+            "lost_final_answer": 0,
+            "longest_tokens": 483,
+            "max_length": 1024
+          },
+          "validation": {
+            "examples": 748,
+            "truncated": 0,
+            "lost_final_answer": 0,
+            "longest_tokens": 439,
+            "max_length": 1024
+          }
+        },
+        "gradient_accumulation_steps": 2,
+        "effective_batch_size": 32,
+        "gradient_checkpointing": false,
+        "peak_gpu_allocated_gib": 15.93287467956543,
+        "peak_gpu_reserved_gib": 18.80078125,
+        "training_metrics": {
+          "train_runtime": 108.347,
+          "train_samples_per_second": 14.767,
+          "train_steps_per_second": 0.461,
+          "total_flos": 4087325883629568.0,
+          "train_loss": 0.5191106128692627,
+          "epoch": 0.7125890736342043
+        },
+        "packages": {
+          "torch": "2.11.0",
+          "transformers": "5.23.0",
+          "trl": "1.18.2",
+          "peft": "0.22.0",
+          "accelerate": "1.15.0",
+          "torchao": "0.17.0"
+        }
+      },
+      "optimizer": {
+        "trainable_dtype": "torch.bfloat16",
+        "restored_step": 100,
+        "token_row_adam_step": 100,
+        "restored_parameter_states": 393,
+        "checkpoint_learning_rates": [
+          0.0,
+          0.0
+        ],
+        "extended_learning_rates": [
+          9.999999999999999e-05,
+          9.999999999999999e-05
+        ],
+        "schedule_end_step": 300,
+        "checkpoint_base_lrs": [
+          0.0003,
+          0.0003
+        ],
+        "extended_base_lrs": [
+          0.00015,
+          0.00015
+        ]
+      },
+      "fp8": {
+        "scaled_mm_calls": 784,
+        "linked_dispatches": 784,
+        "fp8_cuda_kernels": {
+          "nvjet_sm90_qrtst_128x160_128x5_2x1_v_bz_coopA_algo2_TNT": 168,
+          "nvjet_sm90_qrtst_96x128_128x7_2x1_v_bz_coopA_algo2_TNN": 28,
+          "nvjet_sm90_qrtst_96x128_128x7_1x2_h_bz_coopA_algo2_TNN": 56,
+          "nvjet_sm90_qrtst_144x128_128x6_1x2_h_bz_coopA_algo2_TNN": 28,
+          "nvjet_sm90_qrtst_128x128_128x6_1x2_h_bz_coopA_algo2_TNT": 56,
+          "nvjet_sm90_qrtst_64x128_128x8_2x1_v_bz_algo2_TNN": 56,
+          "nvjet_sm90_qqtst_192x192_128x4_1x2_h_bz_coopB_TNN": 56,
+          "nvjet_sm90_qqtst_128x256_128x4_2x1_v_bz_coopA_TNN": 336
+        }
+      },
+      "reload": {
+        "token_ids": [
+          151667,
+          151668
+        ],
+        "trainable_dtype": "torch.bfloat16",
+        "token_parameter_shape": [
+          2,
+          1024
+        ],
+        "trainable_tensors": 393,
+        "changed_adapter_tensors": 393,
+        "reload_matches": true,
+        "output_logits": [
+          0.00927734375,
+          -0.0145263671875
+        ],
+        "logit_gap": 0.0238037109375
+      }
+    }
+  ]
+}

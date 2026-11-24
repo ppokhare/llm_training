@@ -1,0 +1,209 @@
+{
+  "packages": {
+    "torch": "2.11.0",
+    "transformers": "5.23.0",
+    "trl": "1.18.2",
+    "peft": "0.22.0",
+    "kernels": "0.18.2"
+  },
+  "cases": [
+    {
+      "backend": "pytorch_flash_only",
+      "passed": false,
+      "error": "No available kernel. Aborting execution.",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/modal_flash_test.py\", line 69, in test_flash\n    loss=trainer._compute_loss(model,data);case['loss']=loss.item();loss.backward()\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project/scripts/train_grpo.py\", line 51, in _compute_loss\n    loss = super()._compute_loss(model, inputs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/trl/trainer/grpo_trainer.py\", line 3202, in _compute_loss\n    per_token_logps, entropies, aux_loss = self._get_per_token_logps_and_entropies(\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/trl/extras/profiling.py\", line 211, in wrapper\n    return func(self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/trl/trainer/grpo_trainer.py\", line 1618, in _get_per_token_logps_and_entropies\n    outputs = model(**model_inputs, labels=labels, fused_lm_head=True)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/peft/peft_model.py\", line 2425, in forward\n    return self.base_model(\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/peft/tuners/tuners_utils.py\", line 370, in forward\n    return self.model(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/trl/trainer/utils.py\", line 1671, in _fused_forward\n    backbone_outputs = getattr(self, backbone_attr)(*args, **kwargs)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/utils/generic.py\", line 1081, in wrapper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/utils/output_capturing.py\", line 361, in wrapper\n    outputs = func(self, *args, **kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py\", line 405, in forward\n    hidden_states = decoder_layer(\n                    ^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/modeling_layers.py\", line 120, in forward_with_checkpointing\n    return self._gradient_checkpointing_func(partial(forward, self, **kwargs), *args)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_compile.py\", line 54, in inner\n    return disable_fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py\", line 1263, in _fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/utils/checkpoint.py\", line 512, in checkpoint\n    ret = function(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py\", line 299, in forward\n    hidden_states, _ = self.self_attn(\n                       ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/kernels/layer/layer.py\", line 583, in new_forward\n    return orig_forward(self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py\", line 258, in forward\n    attn_output, attn_weights = attention_interface(\n                                ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/transformers/integrations/sdpa_attention.py\", line 193, in sdpa_attention_forward\n    attn_output = torch.nn.functional.scaled_dot_product_attention(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No available kernel. Aborting execution.\n",
+      "seconds": 3.404607654000001
+    },
+    {
+      "backend": "hub_flash_attention_2",
+      "loss": 0.026594853028655052,
+      "gradients": {
+        "trainable_tensors": 392,
+        "gradient_tensors": 392,
+        "missing_gradient_names": [],
+        "nonfinite_gradient_names": []
+      },
+      "flash_ops": [
+        "FlashAttnVarlenFunc",
+        "_flash_attn2_cuda_48fd999::_flash_attn_varlen_forward",
+        "_flash_attn2_cuda_48fd999::varlen_fwd",
+        "autograd::engine::evaluate_function: FlashAttnVarlenFuncBackward",
+        "FlashAttnVarlenFuncBackward",
+        "_flash_attn2_cuda_48fd999::_flash_attn_varlen_backward",
+        "_flash_attn2_cuda_48fd999::varlen_bwd"
+      ],
+      "passed": true,
+      "seconds": 18.138719206999998
+    }
+  ],
+  "smoke": {
+    "passed": true,
+    "steps": 3,
+    "changed_adapter_tensors": 392,
+    "seconds": 75.61312522,
+    "metrics": {
+      "train_runtime": 73.7957,
+      "train_samples_per_second": 1.301,
+      "train_steps_per_second": 0.041,
+      "total_flos": 0.0,
+      "train_loss": 0.03327736755212148,
+      "epoch": 0.001784651992861392
+    },
+    "flash_ops": [
+      "FlashAttnVarlenFunc",
+      "_flash_attn2_cuda_48fd999::_flash_attn_varlen_forward",
+      "_flash_attn2_cuda_48fd999::varlen_fwd",
+      "autograd::engine::evaluate_function: FlashAttnVarlenFuncBackward",
+      "FlashAttnVarlenFuncBackward",
+      "_flash_attn2_cuda_48fd999::_flash_attn_varlen_backward",
+      "_flash_attn2_cuda_48fd999::varlen_bwd"
+    ],
+    "flash_ops_trace_scope": "saved_batch_replay",
+    "attention_implementation": "kernels-community/flash-attn2",
+    "peak_allocated_gib": 3.7013416290283203,
+    "history": [
+      {
+        "loss": 0.04405856132507324,
+        "grad_norm": 0.49747779965400696,
+        "learning_rate": 1e-05,
+        "num_tokens": 5497.0,
+        "completions/mean_length": 97.03125,
+        "completions/min_length": 52.0,
+        "completions/max_length": 171.0,
+        "completions/clipped_ratio": 0.0,
+        "completions/mean_terminated_length": 97.03125,
+        "completions/min_terminated_length": 52.0,
+        "completions/max_terminated_length": 171.0,
+        "rewards/monitored_reward/mean": 0.4375,
+        "rewards/monitored_reward/std": 0.504016101360321,
+        "reward": 0.4375,
+        "reward_std": 0.504016101360321,
+        "frac_reward_zero_std": 0.0,
+        "verifier/invalid_fraction": 0.0,
+        "verifier/multiple_tags_fraction": 0.0,
+        "entropy": 0.6928792968392372,
+        "clip_ratio/low_mean": 0.0,
+        "clip_ratio/high_mean": 0.0,
+        "clip_ratio/region_mean": 0.0,
+        "clip_ratio/low_min": 0.0,
+        "clip_ratio/high_max": 0.0,
+        "step_time": 14.645255764999995,
+        "epoch": 0.000594883997620464,
+        "step": 1
+      },
+      {
+        "loss": 0.07082885503768921,
+        "grad_norm": 0.46834245324134827,
+        "learning_rate": 6.666666666666667e-06,
+        "num_tokens": 11308.0,
+        "completions/mean_length": 95.34375,
+        "completions/min_length": 29.0,
+        "completions/max_length": 248.0,
+        "completions/clipped_ratio": 0.0,
+        "completions/mean_terminated_length": 95.34375,
+        "completions/min_terminated_length": 29.0,
+        "completions/max_terminated_length": 248.0,
+        "rewards/monitored_reward/mean": 0.65625,
+        "rewards/monitored_reward/std": 0.4825586974620819,
+        "reward": 0.65625,
+        "reward_std": 0.4825586974620819,
+        "frac_reward_zero_std": 0.25,
+        "verifier/invalid_fraction": 0.0,
+        "verifier/multiple_tags_fraction": 0.0,
+        "entropy": 0.5253469347953796,
+        "clip_ratio/low_mean": 0.0,
+        "clip_ratio/high_mean": 0.0,
+        "clip_ratio/region_mean": 0.0,
+        "clip_ratio/low_min": 0.0,
+        "clip_ratio/high_max": 0.0,
+        "step_time": 19.771761970999975,
+        "epoch": 0.001189767995240928,
+        "step": 2
+      },
+      {
+        "loss": -0.01505531370639801,
+        "grad_norm": 0.28708580136299133,
+        "learning_rate": 3.3333333333333333e-06,
+        "num_tokens": 18511.0,
+        "completions/mean_length": 133.09375,
+        "completions/min_length": 43.0,
+        "completions/max_length": 512.0,
+        "completions/clipped_ratio": 0.03125,
+        "completions/mean_terminated_length": 120.87096405029297,
+        "completions/min_terminated_length": 43.0,
+        "completions/max_terminated_length": 353.0,
+        "rewards/monitored_reward/mean": 0.46875,
+        "rewards/monitored_reward/std": 0.507007360458374,
+        "reward": 0.46875,
+        "reward_std": 0.507007360458374,
+        "frac_reward_zero_std": 0.5,
+        "verifier/invalid_fraction": 0.03125,
+        "verifier/multiple_tags_fraction": 0.0,
+        "entropy": 0.6678695380687714,
+        "clip_ratio/low_mean": 0.0,
+        "clip_ratio/high_mean": 0.0,
+        "clip_ratio/region_mean": 0.0,
+        "clip_ratio/low_min": 0.0,
+        "clip_ratio/high_max": 0.0,
+        "step_time": 38.53578950900001,
+        "epoch": 0.001784651992861392,
+        "step": 3
+      },
+      {
+        "train_runtime": 73.7957,
+        "train_samples_per_second": 1.301,
+        "train_steps_per_second": 0.041,
+        "total_flos": 0.0,
+        "train_loss": 0.03327736755212148,
+        "epoch": 0.001784651992861392,
+        "step": 3
+      }
+    ]
+  },
+  "reload": {
+    "passed": true,
+    "completions": [
+      "A kilogram of chicken costs $6 - $2 = $4.\nSo, a 3-kilogram of chicken will cost $4 x 3 = $12.\nTherefore, a 3-kilogram of chicken and a kilogram of pork will cost $12 + $6 = $18.\n<final>18</final>",
+      "There were 2 x 2 = 4 bluebirds.\nThere were 3 x 4 = 12 cardinals.\nThere were 4 / 2 = 2 swallows.\nThere were 12 + 4 + 2 = 18 birds in the crape myrtle tree.\n<final>18</final>",
+      "Kenny ran for 10 x 2 = 20 hours.\nHe practiced on the trumpet for 20 x 2 = 40 hours.\n<final>40</final>"
+    ]
+  },
+  "run": "grpo-flash-test-20261121-030851-b1838d",
+  "hardware": "H100",
+  "completions": 96,
+  "questions": 12,
+  "answers_per_question": 8,
+  "native_flash_failure_reason": "Flash Attention does not support non-null attn_mask (runtime warning).",
+  "profiling_attempts": "First run completed 3 updates but was stopped during profiler finalization; second stopped while profiling. Final run profiles only saved-batch replay, not training.",
+  "apps": [
+    {
+      "app_id": "ap-eFExYqSlxwVJoLM9pJ9dfk",
+      "description": "qwen3-grpo-flash-test",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-11-20 19:08:49-08:00",
+      "stopped_at": "2026-11-20 19:11:01-08:00"
+    },
+    {
+      "app_id": "ap-1oM0JpwkJzFsPDBWUPu3ie",
+      "description": "qwen3-grpo-flash-test",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-11-20 19:06:34-08:00",
+      "stopped_at": "2026-11-20 19:09:03-08:00"
+    },
+    {
+      "app_id": "ap-EqpGbHEguDgQlvIYQuSTtu",
+      "description": "qwen3-grpo-flash-test",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-11-20 19:02:19-08:00",
+      "stopped_at": "2026-11-20 19:06:57-08:00"
+    }
+  ],
+  "estimated_compute_usd_upper": 0.64772448,
+  "cost_estimation": "Entire app lifetimes at H100 + 2 CPU cores + 16 GiB list rates, including canceled profiler attempts; not a billing receipt.",
+  "test_runner_source_sha256": "d4e156ab1cafdb3b0ced025d284bb05df4453a415b4f23250d6faee2441eb05a",
+  "full_300_step_run_launched": false,
+  "training_default_changed": false
+}

@@ -1,0 +1,53 @@
+{
+  "run": "sft-think-fp8-20261123-221500-pilot",
+  "modal_app": "ap-ah4kO7BNWirwC9HYeBTwaa",
+  "command": [
+    "/usr/local/bin/python",
+    "-m",
+    "scripts.train_sft",
+    "--data",
+    "/store/data/gsm8k",
+    "--output",
+    "/store/outputs/sft-think-fp8-20261123-221500-pilot/adapter",
+    "--thinking-format",
+    "--train-thinking-tokens",
+    "--precision",
+    "fp8",
+    "--max-length",
+    "1024",
+    "--learning-rate",
+    "3e-4",
+    "--batch-size",
+    "16",
+    "--gradient-accumulation-steps",
+    "2",
+    "--eval-batch-size",
+    "16",
+    "--no-eval-on-start",
+    "--steps",
+    "32",
+    "--eval-at",
+    "32",
+    "--verify-thinking-fp8"
+  ],
+  "optimizer_updates": 0,
+  "truncation": {
+    "train": {
+      "examples": 6725,
+      "truncated": 0,
+      "lost_final_answer": 0,
+      "longest_tokens": 483,
+      "max_length": 1024
+    },
+    "validation": {
+      "examples": 748,
+      "truncated": 0,
+      "lost_final_answer": 0,
+      "longest_tokens": 439,
+      "max_length": 1024
+    }
+  },
+  "reported_fp8_conversions_before_failure": 197,
+  "error": "AttributeError: 'TrainableTokensWrapper' object has no attribute 'bias'",
+  "full_training_started": false
+}

@@ -1,0 +1,186 @@
+{
+  "run": "sft-think-fp8-continue-bf16-20261123-224223-resume",
+  "artifact_path": "outputs/sft-think-fp8-continue-bf16-20261123-224223-resume",
+  "launch_command": "uv run modal run -m scripts.modal_sft_think_fp8 --run-name sft-think-fp8-continue-bf16-20261123-224223 --resume-step10",
+  "checkpoint_dtypes": {
+    "25": {
+      "torch.bfloat16": 393
+    },
+    "50": {
+      "torch.bfloat16": 393
+    },
+    "100": {
+      "torch.bfloat16": 393
+    }
+  },
+  "optimizer": {
+    "trainable_dtype": "torch.bfloat16",
+    "restored_step": 10,
+    "token_row_adam_step": 10,
+    "restored_parameter_states": 393,
+    "checkpoint_learning_rates": [
+      0.0,
+      0.0
+    ],
+    "extended_learning_rates": [
+      0.00027,
+      0.00027
+    ],
+    "schedule_end_step": 100
+  },
+  "fp8": {
+    "scaled_mm_calls": 784,
+    "linked_dispatches": 784,
+    "fp8_cuda_kernels": {
+      "nvjet_sm90_qrtst_128x160_128x5_2x1_v_bz_coopA_algo2_TNT": 28,
+      "nvjet_sm90_qrtst_96x128_128x7_2x1_v_bz_coopA_algo2_TNN": 28,
+      "nvjet_sm90_qrtst_128x128_128x6_1x2_h_bz_coopA_algo2_TNT": 196,
+      "nvjet_sm90_qrtst_96x128_128x7_1x2_h_bz_coopA_algo2_TNN": 56,
+      "nvjet_sm90_qrtst_128x160_128x5_1x2_h_bz_coopA_algo2_TNT": 28,
+      "nvjet_sm90_qrtst_64x128_128x8_2x1_v_bz_algo2_TNN": 56,
+      "nvjet_sm90_qqtst_128x256_128x4_2x1_v_bz_coopA_TNN": 56,
+      "nvjet_sm90_qqtst_128x192_128x5_2x1_v_bz_coopB_TNN": 224,
+      "nvjet_sm90_qqtst_192x192_128x4_2x1_v_bz_coopB_TNN": 112
+    }
+  },
+  "checkpoint_reload": {
+    "token_ids": [
+      151667,
+      151668
+    ],
+    "trainable_dtype": "torch.bfloat16",
+    "token_parameter_shape": [
+      2,
+      1024
+    ],
+    "trainable_tensors": 393,
+    "changed_adapter_tensors": 393,
+    "reload_matches": true,
+    "output_logits": [
+      0.0086669921875,
+      -0.01373291015625
+    ],
+    "logit_gap": 0.02239990234375
+  },
+  "training_truncation": {
+    "train": {
+      "examples": 6725,
+      "truncated": 0,
+      "lost_final_answer": 0,
+      "longest_tokens": 483,
+      "max_length": 1024
+    },
+    "validation": {
+      "examples": 748,
+      "truncated": 0,
+      "lost_final_answer": 0,
+      "longest_tokens": 439,
+      "max_length": 1024
+    }
+  },
+  "validation_panel_sha256": "db9f6e573b176da079aa8bd8759a89d8fe2638122e7a657f7bbe430aa5ee20b4",
+  "generation": [
+    {
+      "step": 10,
+      "n": 64,
+      "correct": 39,
+      "open_tag": 0,
+      "close_tag": 7,
+      "complete": 0,
+      "valid_final": 64,
+      "token_limit_hits": 0,
+      "mean_output_tokens": 99.296875
+    },
+    {
+      "step": 25,
+      "n": 64,
+      "correct": 38,
+      "open_tag": 64,
+      "close_tag": 61,
+      "complete": 61,
+      "valid_final": 61,
+      "token_limit_hits": 3,
+      "mean_output_tokens": 112.0625
+    },
+    {
+      "step": 50,
+      "n": 64,
+      "correct": 38,
+      "open_tag": 64,
+      "close_tag": 63,
+      "complete": 63,
+      "valid_final": 63,
+      "token_limit_hits": 1,
+      "mean_output_tokens": 99.5625
+    },
+    {
+      "step": 100,
+      "n": 64,
+      "correct": 37,
+      "open_tag": 64,
+      "close_tag": 63,
+      "complete": 63,
+      "valid_final": 63,
+      "token_limit_hits": 1,
+      "mean_output_tokens": 100.359375
+    }
+  ],
+  "thinking_logits": {
+    "10": {
+      "opening": {
+        "rank": 11.625,
+        "probability": 0.0018177968668169342,
+        "margin_vs_top_competitor": -0.9453125,
+        "margin_vs_other_tag": -0.6953125
+      },
+      "closing": {
+        "rank": 6.3125,
+        "probability": 0.0037724086869275197,
+        "margin_vs_top_competitor": -1.5546875,
+        "margin_vs_other_tag": 0.9296875
+      }
+    },
+    "25": {
+      "opening": {
+        "rank": 1.0,
+        "probability": 0.8673338033258915,
+        "margin_vs_top_competitor": 2.0625,
+        "margin_vs_other_tag": 2.0625
+      },
+      "closing": {
+        "rank": 1.0,
+        "probability": 0.718766750767827,
+        "margin_vs_top_competitor": 1.2734375,
+        "margin_vs_other_tag": 1.2890625
+      }
+    },
+    "50": {
+      "opening": {
+        "rank": 1.0,
+        "probability": 0.9923538640141487,
+        "margin_vs_top_competitor": 5.2265625,
+        "margin_vs_other_tag": 5.2265625
+      },
+      "closing": {
+        "rank": 1.0,
+        "probability": 0.9651142805814743,
+        "margin_vs_top_competitor": 5.1328125,
+        "margin_vs_other_tag": 5.3203125
+      }
+    },
+    "100": {
+      "opening": {
+        "rank": 1.0,
+        "probability": 0.9956345818936825,
+        "margin_vs_top_competitor": 5.984375,
+        "margin_vs_other_tag": 5.984375
+      },
+      "closing": {
+        "rank": 1.0,
+        "probability": 0.981705941259861,
+        "margin_vs_top_competitor": 5.515625,
+        "margin_vs_other_tag": 5.625
+      }
+    }
+  }
+}

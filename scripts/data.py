@@ -19,6 +19,16 @@ PROMPT_PREFIX = (
     "<final>number</final> tag.\n\nQuestion: "
 )
 PROMPT_SUFFIX = "\nSolution:\n"
+THINK_PROMPT_PREFIX = (
+    "First write your reasoning inside <think> and </think> tags. Then finish with exactly one "
+    "<final>number</final>.\n\nQuestion: "
+)
+SFT_THINK_PROMPT_PREFIX = (
+    "Solve the math problem. Write your reasoning inside "
+    "<think>...</think>, then finish with exactly one "
+    "<final>number</final> tag.\n\nQuestion: "
+)
+PROMPT_STYLES = ("plain", "think", "sft-think")
 FINAL_RE = re.compile(r"<final>\s*([^<>]+?)\s*</final>", re.IGNORECASE)
 
 
@@ -58,8 +68,48 @@ def unpack_gsm_answer(answer: str) -> tuple[str, str]:
     return reasoning, number
 
 
-def make_prompt(question: str) -> str:
-    return PROMPT_PREFIX + question.strip() + PROMPT_SUFFIX
+def make_prompt(question: str, prompt_style: str = "plain") -> str:
+    """Version prompts explicitly; preserve the completed SFT/plain-RLVR baseline."""
+    if prompt_style not in PROMPT_STYLES:
+        raise ValueError(f"Unknown prompt style: {prompt_style}")
+    prefix = {"plain": PROMPT_PREFIX, "think": THINK_PROMPT_PREFIX,
+              "sft-think": SFT_THINK_PROMPT_PREFIX}[prompt_style]
+    return prefix + question.strip() + PROMPT_SUFFIX
+
+
+def with_prompt_style(dataset: Dataset, prompt_style: str) -> Dataset:
+    """Rebuild new prompts from questions in memory, without rewriting cached splits."""
+    if prompt_style not in PROMPT_STYLES:
+        raise ValueError(f"Unknown prompt style: {prompt_style}")
+    if prompt_style == "plain":
+        return dataset
+    return dataset.map(lambda row: {"prompt": make_prompt(row["question"], prompt_style)}, keep_in_memory=True)
+
+
+def add_thinking_format(row: dict) -> dict:
+    """Wrap the existing gold reasoning; never manufacture new reasoning or answers."""
+    reasoning, final = row["completion"].rsplit("\n<final>", 1)
+    if "<think>" in reasoning or "</think>" in reasoning:
+        raise ValueError("Expected original plain SFT targets, not already-wrapped reasoning")
+    return {
+        "prompt": make_prompt(row["question"], "sft-think"),
+        "completion": f"<think>\n{reasoning}\n</think>\n<final>{final}",
+    }
+
+
+def thinking_sft_dataset(dataset: Dataset) -> Dataset:
+    """Apply the format-only adaptation in RAM; retain the fixed split and keys."""
+    return dataset.map(add_thinking_format, keep_in_memory=True)
+
+
+def has_think_format(output: str) -> bool:
+    """Diagnostic only: one nonempty think block before one final-answer tag."""
+    if output.count("<think>") != 1 or output.count("</think>") != 1:
+        return False
+    match = re.search(r"<think>(.*?)</think>", output, flags=re.DOTALL)
+    finals = list(FINAL_RE.finditer(output))
+    return bool(match and match.group(1).strip() and len(finals) == 1
+                and finals[0].start() >= match.end())
 
 
 def format_record(record: dict, idx: int) -> dict:
@@ -106,4 +156,9 @@ def as_sft_dataset(dataset: Dataset) -> Dataset:
 
 def reward_exact_match(completions: list[str], answer: list[str], **kwargs) -> list[float]:
     """Give GRPO one binary numerical-correctness reward per sampled completion."""
-    return [float(extract_final(c) == canonical_number(a)) for c, a in zip(completions, answer)]
+    if len(completions) != len(answer):
+        raise ValueError("Completion and answer counts differ")
+    gold = [canonical_number(a) for a in answer]
+    if any(a is None for a in gold):
+        raise ValueError("Reward received an invalid gold answer")
+    return [float(extract_final(c) == a) for c, a in zip(completions, gold)]

@@ -1,0 +1,137 @@
+{
+  "run": "grpo-pilot-20261121-021228-28cae4",
+  "completed_updates": 42,
+  "failed_update": 43,
+  "diagnosed_operation": "ScaledDotProductCudnnAttentionBackward0",
+  "workaround": "Disable cuDNN SDPA only; keep other SDPA backends enabled.",
+  "baseline": {
+    "packages": {
+      "torch": "2.11.0",
+      "transformers": "5.23.0",
+      "trl": "1.18.2",
+      "peft": "0.22.0"
+    },
+    "cases": [
+      {
+        "attention": "sdpa",
+        "checkpointing": true,
+        "loss": 0.026594853028655052,
+        "passed": false,
+        "error": "Function 'ScaledDotProductCudnnAttentionBackward0' returned nan values in its 0th output.",
+        "traceback": "Traceback (most recent call last):\n  File \"/root/diagnose_grpo.py\", line 57, in replay\n    loss.backward()\n  File \"/usr/local/lib/python3.12/site-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 381, in backward\n    _engine_run_backward(\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Function 'ScaledDotProductCudnnAttentionBackward0' returned nan values in its 0th output.\n",
+        "seconds": 10.516764414
+      },
+      {
+        "attention": "sdpa",
+        "checkpointing": false,
+        "loss": 0.026594853028655052,
+        "passed": false,
+        "error": "Function 'ScaledDotProductCudnnAttentionBackward0' returned nan values in its 0th output.",
+        "traceback": "Traceback (most recent call last):\n  File \"/root/diagnose_grpo.py\", line 57, in replay\n    loss.backward()\n  File \"/usr/local/lib/python3.12/site-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/__init__.py\", line 381, in backward\n    _engine_run_backward(\n  File \"/usr/local/lib/python3.12/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Function 'ScaledDotProductCudnnAttentionBackward0' returned nan values in its 0th output.\n",
+        "seconds": 4.347622376999997
+      },
+      {
+        "attention": "eager",
+        "checkpointing": false,
+        "loss": 0.026594853028655052,
+        "gradients": {
+          "trainable_tensors": 392,
+          "gradient_tensors": 392,
+          "missing_gradient_names": [],
+          "nonfinite_gradient_names": []
+        },
+        "passed": true,
+        "seconds": 4.612004235000001
+      }
+    ],
+    "trl_logprob_source": "    @profiling_decorator\n    def _get_per_token_logps_and_entropies(\n        self,\n        model,\n        input_ids,\n        attention_mask,\n        logits_to_keep,\n        batch_size=None,\n        compute_entropy=False,\n        compute_aux_loss=False,\n        pixel_values=None,\n        image_grid_thw=None,\n        num_images=None,\n        pixel_attention_mask=None,\n        spatial_shapes=None,\n        num_tiles=None,\n        image_sizes=None,\n        token_type_ids=None,\n        mm_token_type_ids=None,\n        image_position_ids=None,\n        sampling_mask=None,\n    ) -> tuple[torch.Tensor, torch.Tensor | None, torch.Tensor | None]:\n        \"\"\"Compute log-probs, (optionally) entropies, and (optionally) the MoE load-balancing aux loss.\"\"\"\n        batch_size = batch_size or input_ids.size(0)  # Chunk inputs into smaller batches to reduce memory peak\n        all_logps = []\n        all_entropies = []\n        all_aux_losses = []\n        for start in range(0, input_ids.size(0), batch_size):\n            end = min(start + batch_size, input_ids.size(0))  # the last chunk can be smaller than batch_size\n            input_ids_batch = input_ids[start:end]\n            attention_mask_batch = attention_mask[start:end]\n\n            # Build model inputs\n            model_inputs = {\"input_ids\": input_ids_batch, \"attention_mask\": attention_mask_batch}\n            if num_images is not None:\n                cum_imgs = torch.tensor([0] + num_images).cumsum(0)\n                img_start, img_end = cum_imgs[start], cum_imgs[end]\n            if image_grid_thw is not None and pixel_values is not None:\n                rows_per_image = image_grid_thw.prod(dim=-1)\n                rows_per_sample = torch.split(rows_per_image, num_images)\n                rows_per_sample = torch.stack([s.sum() for s in rows_per_sample])\n                cum_rows = torch.cat([torch.tensor([0], device=rows_per_sample.device), rows_per_sample.cumsum(0)])\n                row_start, row_end = cum_rows[start].item(), cum_rows[end].item()\n                model_inputs[\"pixel_values\"] = pixel_values[row_start:row_end]\n                model_inputs[\"image_grid_thw\"] = image_grid_thw[img_start:img_end]\n            elif image_position_ids is not None and pixel_values is not None:\n                model_inputs[\"pixel_values\"] = pixel_values[img_start:img_end]\n                model_inputs[\"image_position_ids\"] = image_position_ids[img_start:img_end]\n            elif spatial_shapes is not None and pixel_values is not None:\n                # LFM2-VL tensors are tile-indexed.\n                cum_tiles = torch.tensor([0] + num_tiles).cumsum(0)\n                tile_start, tile_end = cum_tiles[start], cum_tiles[end]\n                model_inputs[\"pixel_values\"] = pixel_values[tile_start:tile_end]\n                model_inputs[\"pixel_attention_mask\"] = pixel_attention_mask[tile_start:tile_end]\n                model_inputs[\"spatial_shapes\"] = spatial_shapes[tile_start:tile_end]\n            elif num_tiles is not None and pixel_values is not None:\n                # InternVL tensors are tile-indexed.\n                cum_tiles = torch.tensor([0] + num_tiles).cumsum(0)\n                tile_start, tile_end = cum_tiles[start], cum_tiles[end]\n                model_inputs[\"pixel_values\"] = pixel_values[tile_start:tile_end]\n            elif pixel_values is not None and pixel_values.size(0) == sum(num_images):\n                model_inputs[\"pixel_values\"] = pixel_values[img_start:img_end]\n            elif pixel_values is not None:\n                model_inputs[\"pixel_values\"] = pixel_values[start:end]\n            if pixel_attention_mask is not None and spatial_shapes is None:\n                model_inputs[\"pixel_attention_mask\"] = pixel_attention_mask[start:end]\n            if image_sizes is not None:\n                model_inputs[\"image_sizes\"] = image_sizes[img_start:img_end]\n            if token_type_ids is not None:\n                model_inputs[\"token_type_ids\"] = token_type_ids[start:end]\n            if mm_token_type_ids is not None:\n                model_inputs[\"mm_token_type_ids\"] = mm_token_type_ids[start:end]\n\n            # MoE models: request router logits so the model returns the load-balancing loss\n            if compute_aux_loss:\n                model_inputs[\"output_router_logits\"] = True\n            # Normalize the log-probs over the candidate set each token was sampled from, as vLLM's are\n            if sampling_mask is not None:\n                support_ids = sampling_mask.new_full((*input_ids_batch.shape, sampling_mask.size(-1)), -1)\n                support_ids[:, -logits_to_keep:] = sampling_mask[start:end]\n                model_inputs[\"support_ids\"] = support_ids\n\n            # Only the completion tokens are scored\n            labels = input_ids_batch.masked_fill(attention_mask_batch == 0, -100)\n            labels[:, :-logits_to_keep] = -100\n            with self.accelerator.autocast():\n                outputs = model(**model_inputs, labels=labels, fused_lm_head=True)\n            all_logps.append(outputs.log_probs[:, -logits_to_keep:])\n            if compute_entropy:\n                all_entropies.append(outputs.entropy[:, -logits_to_keep:])\n            if compute_aux_loss:\n                all_aux_losses.append(outputs.aux_loss)\n\n        logps = torch.cat(all_logps, dim=0)\n        entropies = torch.cat(all_entropies, dim=0) if compute_entropy else None\n        aux_loss = torch.stack(all_aux_losses).mean() if compute_aux_loss else None\n        return logps, entropies, aux_loss\n"
+  },
+  "fixed": {
+    "packages": {
+      "torch": "2.11.0",
+      "transformers": "5.23.0",
+      "trl": "1.18.2",
+      "peft": "0.22.0"
+    },
+    "cases": [
+      {
+        "attention": "sdpa",
+        "checkpointing": true,
+        "cudnn_sdp_enabled": false,
+        "loss": 0.026594853028655052,
+        "attention_ops": [
+          "aten::scaled_dot_product_attention",
+          "aten::_scaled_dot_product_efficient_attention",
+          "aten::_scaled_dot_product_efficient_attention_backward"
+        ],
+        "gradients": {
+          "trainable_tensors": 392,
+          "gradient_tensors": 392,
+          "missing_gradient_names": [],
+          "nonfinite_gradient_names": []
+        },
+        "passed": true,
+        "seconds": 17.443871181
+      },
+      {
+        "attention": "sdpa",
+        "checkpointing": true,
+        "cudnn_sdp_enabled": false,
+        "loss": 0.026594853028655052,
+        "attention_ops": [
+          "aten::scaled_dot_product_attention",
+          "aten::_scaled_dot_product_efficient_attention",
+          "aten::_scaled_dot_product_efficient_attention_backward"
+        ],
+        "gradients": {
+          "trainable_tensors": 392,
+          "gradient_tensors": 392,
+          "missing_gradient_names": [],
+          "nonfinite_gradient_names": []
+        },
+        "passed": true,
+        "seconds": 16.667304848000004
+      },
+      {
+        "attention": "sdpa",
+        "checkpointing": true,
+        "cudnn_sdp_enabled": false,
+        "loss": 0.026594853028655052,
+        "attention_ops": [
+          "aten::scaled_dot_product_attention",
+          "aten::_scaled_dot_product_efficient_attention",
+          "aten::_scaled_dot_product_efficient_attention_backward"
+        ],
+        "gradients": {
+          "trainable_tensors": 392,
+          "gradient_tensors": 392,
+          "missing_gradient_names": [],
+          "nonfinite_gradient_names": []
+        },
+        "passed": true,
+        "seconds": 14.603026510999996
+      }
+    ],
+    "trl_logprob_source": "    @profiling_decorator\n    def _get_per_token_logps_and_entropies(\n        self,\n        model,\n        input_ids,\n        attention_mask,\n        logits_to_keep,\n        batch_size=None,\n        compute_entropy=False,\n        compute_aux_loss=False,\n        pixel_values=None,\n        image_grid_thw=None,\n        num_images=None,\n        pixel_attention_mask=None,\n        spatial_shapes=None,\n        num_tiles=None,\n        image_sizes=None,\n        token_type_ids=None,\n        mm_token_type_ids=None,\n        image_position_ids=None,\n        sampling_mask=None,\n    ) -> tuple[torch.Tensor, torch.Tensor | None, torch.Tensor | None]:\n        \"\"\"Compute log-probs, (optionally) entropies, and (optionally) the MoE load-balancing aux loss.\"\"\"\n        batch_size = batch_size or input_ids.size(0)  # Chunk inputs into smaller batches to reduce memory peak\n        all_logps = []\n        all_entropies = []\n        all_aux_losses = []\n        for start in range(0, input_ids.size(0), batch_size):\n            end = min(start + batch_size, input_ids.size(0))  # the last chunk can be smaller than batch_size\n            input_ids_batch = input_ids[start:end]\n            attention_mask_batch = attention_mask[start:end]\n\n            # Build model inputs\n            model_inputs = {\"input_ids\": input_ids_batch, \"attention_mask\": attention_mask_batch}\n            if num_images is not None:\n                cum_imgs = torch.tensor([0] + num_images).cumsum(0)\n                img_start, img_end = cum_imgs[start], cum_imgs[end]\n            if image_grid_thw is not None and pixel_values is not None:\n                rows_per_image = image_grid_thw.prod(dim=-1)\n                rows_per_sample = torch.split(rows_per_image, num_images)\n                rows_per_sample = torch.stack([s.sum() for s in rows_per_sample])\n                cum_rows = torch.cat([torch.tensor([0], device=rows_per_sample.device), rows_per_sample.cumsum(0)])\n                row_start, row_end = cum_rows[start].item(), cum_rows[end].item()\n                model_inputs[\"pixel_values\"] = pixel_values[row_start:row_end]\n                model_inputs[\"image_grid_thw\"] = image_grid_thw[img_start:img_end]\n            elif image_position_ids is not None and pixel_values is not None:\n                model_inputs[\"pixel_values\"] = pixel_values[img_start:img_end]\n                model_inputs[\"image_position_ids\"] = image_position_ids[img_start:img_end]\n            elif spatial_shapes is not None and pixel_values is not None:\n                # LFM2-VL tensors are tile-indexed.\n                cum_tiles = torch.tensor([0] + num_tiles).cumsum(0)\n                tile_start, tile_end = cum_tiles[start], cum_tiles[end]\n                model_inputs[\"pixel_values\"] = pixel_values[tile_start:tile_end]\n                model_inputs[\"pixel_attention_mask\"] = pixel_attention_mask[tile_start:tile_end]\n                model_inputs[\"spatial_shapes\"] = spatial_shapes[tile_start:tile_end]\n            elif num_tiles is not None and pixel_values is not None:\n                # InternVL tensors are tile-indexed.\n                cum_tiles = torch.tensor([0] + num_tiles).cumsum(0)\n                tile_start, tile_end = cum_tiles[start], cum_tiles[end]\n                model_inputs[\"pixel_values\"] = pixel_values[tile_start:tile_end]\n            elif pixel_values is not None and pixel_values.size(0) == sum(num_images):\n                model_inputs[\"pixel_values\"] = pixel_values[img_start:img_end]\n            elif pixel_values is not None:\n                model_inputs[\"pixel_values\"] = pixel_values[start:end]\n            if pixel_attention_mask is not None and spatial_shapes is None:\n                model_inputs[\"pixel_attention_mask\"] = pixel_attention_mask[start:end]\n            if image_sizes is not None:\n                model_inputs[\"image_sizes\"] = image_sizes[img_start:img_end]\n            if token_type_ids is not None:\n                model_inputs[\"token_type_ids\"] = token_type_ids[start:end]\n            if mm_token_type_ids is not None:\n                model_inputs[\"mm_token_type_ids\"] = mm_token_type_ids[start:end]\n\n            # MoE models: request router logits so the model returns the load-balancing loss\n            if compute_aux_loss:\n                model_inputs[\"output_router_logits\"] = True\n            # Normalize the log-probs over the candidate set each token was sampled from, as vLLM's are\n            if sampling_mask is not None:\n                support_ids = sampling_mask.new_full((*input_ids_batch.shape, sampling_mask.size(-1)), -1)\n                support_ids[:, -logits_to_keep:] = sampling_mask[start:end]\n                model_inputs[\"support_ids\"] = support_ids\n\n            # Only the completion tokens are scored\n            labels = input_ids_batch.masked_fill(attention_mask_batch == 0, -100)\n            labels[:, :-logits_to_keep] = -100\n            with self.accelerator.autocast():\n                outputs = model(**model_inputs, labels=labels, fused_lm_head=True)\n            all_logps.append(outputs.log_probs[:, -logits_to_keep:])\n            if compute_entropy:\n                all_entropies.append(outputs.entropy[:, -logits_to_keep:])\n            if compute_aux_loss:\n                all_aux_losses.append(outputs.aux_loss)\n\n        logps = torch.cat(all_logps, dim=0)\n        entropies = torch.cat(all_entropies, dim=0) if compute_entropy else None\n        aux_loss = torch.stack(all_aux_losses).mean() if compute_aux_loss else None\n        return logps, entropies, aux_loss\n"
+  },
+  "diagnostic_apps": [
+    {
+      "app_id": "ap-kR4VNXGcdCU8E6bboOWxCG",
+      "description": "qwen3-grpo-diagnosis",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-11-20 18:51:33-08:00",
+      "stopped_at": "2026-11-20 18:52:45-08:00"
+    },
+    {
+      "app_id": "ap-kaK3P5M2Ql1JPWNmnm919k",
+      "description": "qwen3-grpo-diagnosis",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-11-20 18:50:15-08:00",
+      "stopped_at": "2026-11-20 18:51:16-08:00"
+    }
+  ],
+  "full_300_step_run_tested": false,
+  "trainer_source_sha256": "3858b42bb204b8324d6105c1c9c3d568410026892d45bb7f422fc673125d2417"
+}

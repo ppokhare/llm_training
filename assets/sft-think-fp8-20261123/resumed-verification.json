@@ -1,0 +1,62 @@
+{
+  "run": "sft-think-fp8-resume-20261123-222025-verification",
+  "modal_app": "ap-sj9kqtdIqETxjG7fcn1Qkg",
+  "launch_command": "uv run modal run -m scripts.modal_sft_think_fp8 --run-name sft-think-fp8-resume-20261123-222025 --staged-pilots",
+  "completed_updates": 10,
+  "converted_frozen_projections": 196,
+  "token_and_checkpoint_checks": {
+    "token_ids": [
+      151667,
+      151668
+    ],
+    "trainable_dtype": "torch.bfloat16",
+    "token_parameter_shape": [
+      2,
+      1024
+    ],
+    "trainable_tensors": 393,
+    "gradient_norms": [
+      0.6783944964408875,
+      0.4562433063983917
+    ],
+    "gradient_difference_norm": 0.8178387880325317,
+    "changed_adapter_tensors": 393,
+    "reload_matches": true,
+    "output_logits": [
+      0.00077056884765625,
+      -8.821487426757812e-05
+    ],
+    "logit_gap": 0.0008587837219238281
+  },
+  "cuda_trace": {
+    "join_field": "args.External id",
+    "scaled_mm_calls": 588,
+    "scaled_mm_calls_with_kernel": 588,
+    "kernel_launches": {
+      "nvjet_sm90_qrtst_128x128_128x6_1x2_h_bz_coopA_algo2_TNT": 196,
+      "nvjet_sm90_qrtst_144x128_128x6_1x2_h_bz_coopA_algo2_TNN": 56,
+      "nvjet_sm90_qrtst_96x128_128x7_1x2_h_bz_coopA_algo2_TNN": 56,
+      "nvjet_sm90_qrtst_64x128_128x8_2x1_v_bz_algo2_TNN": 56,
+      "nvjet_sm90_qqtst_128x192_128x5_2x1_v_bz_coopB_TNN": 56,
+      "nvjet_sm90_qqtst_176x128_128x5_1x2_h_bz_TNN": 56,
+      "nvjet_sm90_qqtst_128x256_128x4_1x2_h_bz_coopA_TNN": 56,
+      "nvjet_sm90_qrtst_96x128_128x7_2x1_v_bz_coopA_algo2_TNN": 28,
+      "nvjet_sm90_qqtst_128x256_128x4_2x1_v_bz_coopA_TNN": 28
+    },
+    "automated_name_check": "false negative"
+  },
+  "validation": {
+    "source": "in-process FP8 generation at step 10 on the fixed first 64 validation rows",
+    "prompt_style": "sft-think",
+    "max_new_tokens": 512,
+    "n": 64,
+    "correct": 39,
+    "complete_think_blocks": 0,
+    "single_valid_final": 64,
+    "token_limit_hits": 0,
+    "mean_output_tokens": 99.296875,
+    "emitted_open_tag": 0,
+    "emitted_close_tag_only": 7
+  },
+  "pilot25_started": false
+}
